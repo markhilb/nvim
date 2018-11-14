@@ -15,7 +15,7 @@ set clipboard=unnamedplus
 set number relativenumber
 syntax on
 colorscheme space-vim-dark
-set t_Co=256
+"set t_Co=256
 "colorscheme abstract
 "highlight Normal ctermbg=black
 "highlight Normal ctermfg=black
