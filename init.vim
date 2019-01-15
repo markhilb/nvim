@@ -36,7 +36,7 @@ nnoremap <C-n> :tabedit<CR>
 nnoremap <tab> :tabn<CR>
 "shift + tab = go to previous tab
 nnoremap <S-tab> :tabp<CR>
-"shift + j = jump halv page up
+"shift + j = jump halv page down
 nnoremap <S-J> <C-D>                                                        
-"shift + k = jump halv page down
+"shift + k = jump halv page up
 nnoremap <S-K> <C-U>   
