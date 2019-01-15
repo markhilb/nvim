@@ -23,7 +23,7 @@ let g:deoplete#enable_at_startup = 1
 packloadall
 silent! helptags ALL
 
-
+ALEToggle
 
 "Key bindings:
 "
