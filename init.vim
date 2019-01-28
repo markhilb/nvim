@@ -13,10 +13,10 @@ set tabstop=4
 set shiftwidth=4
 set clipboard=unnamedplus
 set number relativenumber
+set mouse=a
 syntax on
 colorscheme space-vim-dark
 "set t_Co=256
-"colorscheme abstract
 "highlight Normal ctermbg=black
 "highlight Normal ctermfg=black
 let g:deoplete#enable_at_startup = 1
