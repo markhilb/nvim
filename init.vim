@@ -41,6 +41,10 @@ nnoremap <S-J> <C-D>
 "shift + k = jump half page up
 nnoremap <S-K> <C-U>   
 "Alt + j = move line down
-nnoremap <A-j> :m+1<CR>
+nnoremap <A-j> :m.+1<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+inoremap <A-j> <Esc>:m .+1<CR>==gi
 "Alt + k = move line up
-nnoremap <A-k> :m-2<CR>
+nnoremap <A-k> :m.-2<CR>==
+vnoremap <A-k> :m '<-2<CR>gv=gv
+inoremap <A-k> <Esc>:m .-2<CR>==gi
