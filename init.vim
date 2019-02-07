@@ -40,3 +40,7 @@ nnoremap <S-tab> :tabp<CR>
 nnoremap <S-J> <C-D>                                                        
 "shift + k = jump half page up
 nnoremap <S-K> <C-U>   
+"Alt + j = move line down
+nnoremap <A-j> :m+1<CR>
+"Alt + k = move line up
+nnoremap <A-k> :m-2<CR>
