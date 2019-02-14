@@ -92,7 +92,7 @@ function! s:hi(item, fg, bg, cterm, gui)
   execute 'hi '.a:item.' '.l:fg.' '.l:bg.' '.l:style
 endfunction
 
-let s:fg = 249
+let s:fg = 254
 let s:bg = get(g:, 'space_vim_dark_background', 235)
 let s:bg = max([s:bg, 233])
 
@@ -105,7 +105,7 @@ let s:bg4 = s:bg + 4
 
 " call s:hi(item, fg, bg, cterm, gui)
 
-call s:hi('Normal' , 249 , s:bg , 'None' , 'None')
+call s:hi('Normal' , 254 , s:bg , 'None' , 'None')
 call s:hi('Cursor' , 235 , 178  , 'bold' , 'bold')
 
 call s:hi('LineNr' , 239+s:bias , s:bg0 , 'None' , 'None')
@@ -129,14 +129,14 @@ call s:hi('TabLineFill' , 145 , s:bg2 , 'None' , 'None')
 call s:hi('WildMenu'    , 214 , s:bg3 , 'None' , 'None')
 
 call s:hi('Boolean'     , 178 , '' , 'None' , 'None')
-call s:hi('Character'   , 75  , '' , 'None' , 'None')
+call s:hi('Character'   , 35  , '' , 'None' , 'None')
 call s:hi('Number'      , 176 , '' , 'None' , 'None')
 call s:hi('Float'       , 135 , '' , 'None' , 'None')
 call s:hi('String'      , 36  , '' , 'None' , 'None')
-call s:hi('Conditional' , 68  , '' , 'bold' , 'bold')
+call s:hi('Conditional' , 69  , '' , 'bold' , 'bold')
 call s:hi('Constant'    , 218 , '' , 'None' , 'None')
 call s:hi('Debug'       , 225 , '' , 'None' , 'None')
-call s:hi('Define'      , 177 , '' , 'None' , 'None')
+call s:hi('Define'      , 201 , '' , 'None' , 'None')
 call s:hi('Delimiter'   , 151 , '' , 'None' , 'None')
 
 call s:hi('DiffAdd'    , ''  , 24  , 'None' , 'None')
@@ -145,7 +145,7 @@ call s:hi('DiffDelete' , 162 , 53  , 'None' , 'None')
 call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
 
 call s:hi('Exception'  , 204 , ''  , 'bold' , 'bold')
-call s:hi('Function'   , 169 , ''  , 'bold' , 'bold')
+call s:hi('Function'   , 212 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 167 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
 call s:hi('Operator'   , 111 , ''  , 'None' , 'None')
@@ -165,8 +165,8 @@ call s:hi('Structure' , 68 , '' , 'bold' , 'bold')
 call s:hi('Label'   , 104 , '' , 'None' , 'None')
 call s:hi('Macro'   , 140 , '' , 'None' , 'None')
 
-call s:hi('Type'       , 68 , '' , 'None'      , 'None')
-call s:hi('Typedef'    , 68 , '' , 'None'      , 'None')
+call s:hi('Type'       , 75 , '' , 'None'      , 'None')
+call s:hi('Typedef'    , 75 , '' , 'None'      , 'None')
 call s:hi('Underlined' , ''  , '' , 'underline' , 'underline')
 
 call s:hi('Search'    , 16 , 76    , 'bold' , 'bold')

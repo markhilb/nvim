@@ -15,7 +15,7 @@ set clipboard=unnamedplus
 set number relativenumber
 set mouse=a
 syntax on
-colorscheme space-vim-dark
+colorscheme custom
 "set t_Co=256
 "highlight Normal ctermbg=black
 "highlight Normal ctermfg=black

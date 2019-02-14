@@ -1,13 +1,21 @@
+"
+" Author: Liu-Cheng Xu
+" URL: https://github.com/liuchengxu/space-vim-dark
+"
+" Note: Inspired by spacemacs-dark theme
+
 hi clear
 
-set background=dark
-
-if exists("syntax_on")
-  syntax reset
+if v:version > 580
+    " no guarantees for version 5.8 and below, but this makes it stop
+    " complaining
+    hi clear
+    if exists('g:syntax_on')
+        syntax reset
+    endif
 endif
 
-let g:colors_name="test"
-
+let g:colors_name='space-vim-dark'
 
 " refer to http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 let s:color256 = {
@@ -56,7 +64,14 @@ let s:color256 = {
       \ 250 : '#bcbcbc', 251 : '#c6c6c6', 252 : '#d0d0d0', 253 : '#dadada', 254 : '#e4e4e4', 255 : '#eeeeee',
       \ }
 
-
+" ========|===========
+" Red     | 160 168
+" Blue    | 67  68  111
+" Yellow  | 114 179
+" Orange  | 173 178
+" Purple  | 140
+" Magenta | 128
+" ========|===========
 
 let s:colors = {
       \ 16: '#292b2e', 24: '#3C8380', 28: '#c269fe', 30: '#2aa1ae', 36: '#20af81', 40: '#00ff00',
@@ -77,8 +92,8 @@ function! s:hi(item, fg, bg, cterm, gui)
   execute 'hi '.a:item.' '.l:fg.' '.l:bg.' '.l:style
 endfunction
 
-let s:fg = 249
-let s:bg = get(g:, 'test', 235)
+let s:fg = 254
+let s:bg = get(g:, 'space_vim_dark_background', 235)
 let s:bg = max([s:bg, 233])
 
 let s:bias = s:bg - 235
@@ -88,9 +103,9 @@ let s:bg2 = s:bg + 2
 let s:bg3 = s:bg + 3
 let s:bg4 = s:bg + 4
 
+" call s:hi(item, fg, bg, cterm, gui)
 
-
-call s:hi('Normal' , 249 , s:bg , 'None' , 'None')
+call s:hi('Normal' , 254 , s:bg , 'None' , 'None')
 call s:hi('Cursor' , 235 , 178  , 'bold' , 'bold')
 
 call s:hi('LineNr' , 239+s:bias , s:bg0 , 'None' , 'None')
@@ -114,14 +129,14 @@ call s:hi('TabLineFill' , 145 , s:bg2 , 'None' , 'None')
 call s:hi('WildMenu'    , 214 , s:bg3 , 'None' , 'None')
 
 call s:hi('Boolean'     , 178 , '' , 'None' , 'None')
-call s:hi('Character'   , 75  , '' , 'None' , 'None')
+call s:hi('Character'   , 35  , '' , 'None' , 'None')
 call s:hi('Number'      , 176 , '' , 'None' , 'None')
 call s:hi('Float'       , 135 , '' , 'None' , 'None')
 call s:hi('String'      , 36  , '' , 'None' , 'None')
-call s:hi('Conditional' , 68  , '' , 'bold' , 'bold')
+call s:hi('Conditional' , 69  , '' , 'bold' , 'bold')
 call s:hi('Constant'    , 218 , '' , 'None' , 'None')
 call s:hi('Debug'       , 225 , '' , 'None' , 'None')
-call s:hi('Define'      , 177 , '' , 'None' , 'None')
+call s:hi('Define'      , 201 , '' , 'None' , 'None')
 call s:hi('Delimiter'   , 151 , '' , 'None' , 'None')
 
 call s:hi('DiffAdd'    , ''  , 24  , 'None' , 'None')
@@ -130,7 +145,7 @@ call s:hi('DiffDelete' , 162 , 53  , 'None' , 'None')
 call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
 
 call s:hi('Exception'  , 204 , ''  , 'bold' , 'bold')
-call s:hi('Function'   , 169 , ''  , 'bold' , 'bold')
+call s:hi('Function'   , 212 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 167 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
 call s:hi('Operator'   , 111 , ''  , 'None' , 'None')
@@ -150,8 +165,8 @@ call s:hi('Structure' , 68 , '' , 'bold' , 'bold')
 call s:hi('Label'   , 104 , '' , 'None' , 'None')
 call s:hi('Macro'   , 140 , '' , 'None' , 'None')
 
-call s:hi('Type'       , 68 , '' , 'None'      , 'None')
-call s:hi('Typedef'    , 68 , '' , 'None'      , 'None')
+call s:hi('Type'       , 75 , '' , 'None'      , 'None')
+call s:hi('Typedef'    , 75 , '' , 'None'      , 'None')
 call s:hi('Underlined' , ''  , '' , 'underline' , 'underline')
 
 call s:hi('Search'    , 16 , 76    , 'bold' , 'bold')
@@ -179,11 +194,10 @@ call s:hi('WarningMsg' , 136 , '' , 'bold' , 'bold')
 call s:hi('Error'    , 160 , s:bg , 'bold' , 'bold')
 call s:hi('ErrorMsg' , 196 , s:bg , 'bold' , 'bold')
 
-call s:hi('Special'          , 169 , '' , 'None' , 'None')
-call s:hi('SpecialKey'       , 59  , '' , 'None' , 'None')
-call s:hi('SpecialChar'      , 171 , '' , 'bold' , 'bold')
-call s:hi('SpecialComment'   , 243  , '' , 'None' , 'None')
-call s:hi('SpecialCharacter' , 124  , '' , 'None' , 'None')
+call s:hi('Special'        , 169 , '' , 'None' , 'None')
+call s:hi('SpecialKey'     , 59  , '' , 'None' , 'None')
+call s:hi('SpecialChar'    , 171 , '' , 'bold' , 'bold')
+call s:hi('SpecialComment' , 243  , '' , 'None' , 'None')
 
 call s:hi('SpellBad'   , 168 , '' , 'underline' , 'undercurl')
 call s:hi('SpellCap'   , 110 , '' , 'underline' , 'undercurl')
@@ -211,7 +225,6 @@ hi SignColumn   guibg=NONE
 
 hi link qfLineNr Type
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -228,8 +241,6 @@ call s:hi('mkdItalic'  , 36  , '' , 'None' , 'italic')
 " c
 call s:hi('cConstant'    , 178 , '' , 'none' , 'none')
 call s:hi('cCustomClass' , 167 , '' , 'bold' , 'bold')
-call s:hi('cOperator'    , 111 , '' , 'bold' , 'bold')
-call s:hi('cIdentifier'    , 111 , '' , 'bold' , 'bold')
 
 " cpp
 call s:hi('cppSTLexception', 199, '', 'bold', 'bold')
@@ -418,5 +429,6 @@ call s:hi('QuickScopeSecondary' , 81  , '' , 'underline' , 'underline')
 delf s:hi
 unlet s:color256 s:colors s:bg
 
-
+" Must be at the end, because of ctermbg=234 bug.
+" https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
