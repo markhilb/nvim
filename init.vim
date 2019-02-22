@@ -48,3 +48,22 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
+"; = execute previous command
+nnoremap ; :<UP><CR>
+
+"ctr + {number} = go to that tab (ctr + 0 goes to last tab)
+function Tabber()
+	for i in range(0, 10)
+		if i == 0
+			let s:cmd = 'nnoremap <A-' . 0 . '> ' . 1 . 'gt \| :tabp<CR>'
+		else
+			let s:cmd = 'nnoremap <A-' . i . '> ' . i . 'gt'
+		endif
+		execute s:cmd
+	endfor
+endfunction
+
+call Tabber()
+
+
+
