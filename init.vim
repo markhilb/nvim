@@ -55,6 +55,18 @@ nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
+"Alt + L = move letter to right
+nnoremap <A-L> xp
+
+"Alt + H = move letter to left
+nnoremap <A-H> Xph
+
+"Alt + l = word move to right
+nnoremap <A-l> dawwPb
+
+"Alt + h = move word to left
+nnoremap <A-h> dawbPb
+
 "; = execute previous command
 nnoremap ; :<UP><CR>
 
