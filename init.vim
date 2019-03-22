@@ -6,9 +6,10 @@ call plug#begin()
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'rhysd/accelerated-jk'
+	Plug 'terryma/vim-multiple-cursors'
+call plug#end()
 
 	
-call plug#end()
 set tabstop=4
 set shiftwidth=4
 set clipboard=unnamedplus
@@ -30,8 +31,8 @@ silent! helptags ALL
 "ctr + l = unhighlight words
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-"ctr + n = new tab
-nnoremap <C-n> :tabedit<CR>
+"N = new tab
+nnoremap N :tabedit<CR>
 
 "tab = go to next tab
 nnoremap <tab> :tabn<CR>
@@ -40,10 +41,10 @@ nnoremap <tab> :tabn<CR>
 nnoremap <S-tab> :tabp<CR>
 
 "shift + j = jump half page down
-nnoremap <S-J> <C-D>                                                        
+nnoremap <S-J> :+10<CR>
 
 "shift + k = jump half page up
-nnoremap <S-K> <C-U>   
+nnoremap <S-K> :-10<CR>
 
 "Alt + j = move line down
 nnoremap <A-j> :m.+1<CR>==
@@ -56,10 +57,10 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
 "Alt + L = move letter to right
-nnoremap <A-L> xp
+nnoremap L xp
 
 "Alt + H = move letter to left
-nnoremap <A-H> Xph
+nnoremap H Xph
 
 "Alt + l = word move to right
 nnoremap <A-l> dawwPb
@@ -72,6 +73,9 @@ nnoremap ; :<UP><CR>
 
 "r + w = replace inner word
 nnoremap rw viwp
+
+
+nnoremap = $
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber()
