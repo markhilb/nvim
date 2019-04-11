@@ -15,7 +15,7 @@ if v:version > 580
     endif
 endif
 
-let g:colors_name='space-vim-dark'
+let g:colors_name='custom'
 
 " refer to http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 let s:color256 = {
@@ -105,6 +105,8 @@ let s:bg4 = s:bg + 4
 
 " call s:hi(item, fg, bg, cterm, gui)
 
+
+
 call s:hi('Normal' , 254 , s:bg , 'None' , 'None')
 call s:hi('Cursor' , 235 , 178  , 'bold' , 'bold')
 
@@ -148,7 +150,7 @@ call s:hi('Exception'  , 204 , ''  , 'bold' , 'bold')
 call s:hi('Function'   , 212 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 167 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
-call s:hi('Operator'   , 111 , ''  , 'None' , 'None')
+call s:hi('Operator'   , 196 , ''  , 'None' , 'None')
 call s:hi('FoldColumn' , 67  , s:bg1 , 'None' , 'None')
 call s:hi('Folded'     , 133 , s:bg1 , 'bold' , 'bold')
 
@@ -241,6 +243,8 @@ call s:hi('mkdItalic'  , 36  , '' , 'None' , 'italic')
 " c
 call s:hi('cConstant'    , 178 , '' , 'none' , 'none')
 call s:hi('cCustomClass' , 167 , '' , 'bold' , 'bold')
+
+
 
 " cpp
 call s:hi('cppSTLexception', 199, '', 'bold', 'bold')
@@ -346,6 +350,7 @@ call s:hi('pythonException'       , 166 , '' , 'bold' , 'bold')
 call s:hi('pythonError'           , 195 , '' , 'none' , 'none')
 call s:hi('pythonIndentError'     , 196 , '' , 'none' , 'none')
 call s:hi('pythonSpaceError'      , 196 , '' , 'none' , 'none')
+call s:hi('pythonMethod'          , 100 , '' , 'none' , 'none')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins

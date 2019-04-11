@@ -7,6 +7,10 @@ call plug#begin()
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'rhysd/accelerated-jk'
 	Plug 'terryma/vim-multiple-cursors'
+	Plug 'tpope/vim-commentary'
+	Plug 'sheerun/vim-polyglot'
+	Plug 'wellle/targets.vim'
+	Plug 'justinmk/vim-syntax-extra'
 call plug#end()
 
 	
@@ -74,11 +78,15 @@ nnoremap ; :<UP><CR>
 "r + w = replace inner word
 nnoremap rw viwp
 
-
+"= = end of line (normal mode)
 nnoremap = $
 
+
+" Ctr + t = open terminal in vim
+nnoremap <C-t> :terminal<CR> i
+
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
-function Tabber()
+function Tabber1()
 	for i in range(0, 10)
 		if i == 0
 			let s:cmd = 'nnoremap <A-' . 0 . '> ' . 1 . 'gt \| :tabp<CR>'
@@ -89,6 +97,6 @@ function Tabber()
 	endfor
 endfunction
 
-call Tabber()
+call Tabber1()
 
 
