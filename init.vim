@@ -36,7 +36,7 @@ silent! helptags ALL
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 "N = new tab
-nnoremap N :tabedit<CR>
+nnoremap E :tabedit<CR>
 
 "tab = go to next tab
 nnoremap <tab> :tabn<CR>

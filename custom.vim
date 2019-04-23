@@ -1,9 +1,3 @@
-"
-" Author: Liu-Cheng Xu
-" URL: https://github.com/liuchengxu/space-vim-dark
-"
-" Note: Inspired by spacemacs-dark theme
-
 hi clear
 
 if v:version > 580
@@ -150,7 +144,7 @@ call s:hi('Exception'  , 204 , ''  , 'bold' , 'bold')
 call s:hi('Function'   , 212 , ''  , 'bold' , 'bold')
 call s:hi('Identifier' , 167 , ''  , 'None' , 'None')
 call s:hi('Ignore'     , 244 , ''  , 'None' , 'None')
-call s:hi('Operator'   , 196 , ''  , 'None' , 'None')
+call s:hi('Operator'   , 208 , ''  , 'None' , 'None')
 call s:hi('FoldColumn' , 67  , s:bg1 , 'None' , 'None')
 call s:hi('Folded'     , 133 , s:bg1 , 'bold' , 'bold')
 
