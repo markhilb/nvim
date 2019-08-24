@@ -81,6 +81,12 @@ nnoremap rw viwp
 "= = end of line (normal mode)
 nnoremap = $
 
+"Wrap selected inside:
+vnoremap ( d<ESC>i()<ESC>P
+vnoremap [ d<ESC>i[]<ESC>P
+vnoremap { d<ESC>i{}<ESC>P
+vnoremap " d<ESC>i""<ESC>P
+vnoremap ' d<ESC>i''<ESC>P
 
 " Ctr + t = open terminal in vim
 nnoremap <C-t> :terminal<CR> i
