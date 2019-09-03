@@ -1,6 +1,6 @@
 call plug#begin()
-	Plug 'kien/ctrlp.vim'
-	Plug 'scrooloose/nerdtree'
+	Plug 'kien/trlp.vim'
+	Plug 'sroolnoose/erdtree'
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -35,7 +35,7 @@ set completeopt=menu,noinsert
 "
 "
 "ctr + l = unhighlight words
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap L :nohl<CR>
 
 "N = new tab
 nnoremap E :tabedit<CR>
@@ -61,12 +61,6 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
-
-"Alt + L = move letter to right
-nnoremap L xp
-
-"Alt + H = move letter to left
-nnoremap H Xph
 
 "Alt + l = word move to right
 nnoremap <A-l> dawwPb
