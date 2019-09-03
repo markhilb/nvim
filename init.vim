@@ -28,8 +28,10 @@ let g:deoplete#enable_at_startup = 1
 packloadall
 silent! helptags ALL
 
+"Make autocomplete menu auto highlight first option
+set completeopt=menu,noinsert
 
-"Key bindings:
+
 "
 "
 "ctr + l = unhighlight words
