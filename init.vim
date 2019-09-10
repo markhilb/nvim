@@ -1,6 +1,7 @@
 call plug#begin()
-	Plug 'kien/trlp.vim'
-	Plug 'sroolnoose/erdtree'
+	Plug 'ctrlpvim/ctrlp.vim'
+	" Plug 'kien/ctrlp.vim'
+	Plug 'scrooloose/nerdtree'
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -24,7 +25,7 @@ colorscheme custom
 "set t_Co=256
 "highlight Normal ctermbg=black
 "highlight Normal ctermfg=black
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
 packloadall
 silent! helptags ALL
 
@@ -37,8 +38,8 @@ set completeopt=menu,noinsert
 "ctr + l = unhighlight words
 nnoremap L :nohl<CR>
 
-"N = new tab
-nnoremap E :tabedit<CR>
+"T = new tab + ctr + P
+nnoremap T :tabedit<CR>:CtrlP<CR>
 
 "tab = go to next tab
 nnoremap <tab> :tabn<CR>
@@ -84,8 +85,10 @@ vnoremap { d<ESC>i{}<ESC>P
 vnoremap " d<ESC>i""<ESC>P
 vnoremap ' d<ESC>i''<ESC>P
 
-" Ctr + t = open terminal in vim
-nnoremap <C-t> :terminal<CR> i
+
+"Don't overwrite clipboard on visual paste
+vnoremap p "_dP
+
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
