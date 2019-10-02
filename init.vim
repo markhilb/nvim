@@ -14,43 +14,40 @@ call plug#begin()
 	Plug 'justinmk/vim-syntax-extra'
 call plug#end()
 
+colorscheme custom
 	
+set clipboard=unnamedplus
+set mouse=a
+
+syntax on
 set tabstop=4
 set shiftwidth=4
-set clipboard=unnamedplus
 set number relativenumber
-set mouse=a
-syntax on
-colorscheme custom
-"set t_Co=256
-"highlight Normal ctermbg=black
-"highlight Normal ctermfg=black
 let g:deoplete#enable_at_startup=1
 packloadall
 silent! helptags ALL
+set noswapfile
+
 
 "Make autocomplete menu auto highlight first option
 set completeopt=menu,noinsert
 
 
-"
-"
-"ctr + l = unhighlight words
-nnoremap L :nohl<CR>
+" Allow larger undo history
+set undofile                       " use an undo file
+set undodir=$HOME/.vim/undo        " undo file path
+set undolevels=1000
+set undoreload=10000
 
-"T = new tab + ctr + P
-nnoremap T :tabedit<CR>:CtrlP<CR>
 
-"tab = go to next tab
-nnoremap <tab> :tabn<CR>
+" Keep selection when indenting/outdenting.
+vnoremap > >gv
+vnoremap < <gv
 
-"shift + tab = go to previous tab
-nnoremap <S-tab> :tabp<CR>
-
-"shift + j = jump half page down
+"shift + j = jump 10 lines down
 nnoremap <S-J> :+10<CR>
 
-"shift + k = jump half page up
+"shift + k = jump 10 lines up
 nnoremap <S-K> :-10<CR>
 
 "Alt + j = move line down
@@ -63,20 +60,14 @@ nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
-"Alt + l = word move to right
-nnoremap <A-l> dawwPb
+"tab = go to next tab
+nnoremap <tab> :tabn<CR>
 
-"Alt + h = move word to left
-nnoremap <A-h> dawbPb
+"shift + tab = go to previous tab
+nnoremap <S-tab> :tabp<CR>
 
 "; = execute previous command
 nnoremap ; :<UP><CR>
-
-"r + w = replace inner word
-nnoremap rw viwp
-
-"= = end of line (normal mode)
-nnoremap = $
 
 "Wrap selected inside:
 vnoremap ( d<ESC>i()<ESC>P
@@ -85,10 +76,25 @@ vnoremap { d<ESC>i{}<ESC>P
 vnoremap " d<ESC>i""<ESC>P
 vnoremap ' d<ESC>i''<ESC>P
 
-
 "Don't overwrite clipboard on visual paste
 vnoremap p "_dP
 
+" Leader specific maps
+let mapleader = " "
+" Time before keykode or leader terminated
+set timeout ttimeoutlen=50
+
+" l = unhighlight words
+nnoremap <leader>l :noh<CR>
+
+" t = new tab + ctr + P
+nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
+
+" n = new tab
+nnoremap <leader>n :tabedit<CR>
+
+" e = new tab + :e 
+nnoremap <leader>e :tabedit<CR>:e 
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
