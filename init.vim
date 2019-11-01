@@ -1,6 +1,7 @@
 call plug#begin()
+	Plug 'junegunn/vim-emoji'
+	Plug 'Chiel92/vim-autoformat'
 	Plug 'ctrlpvim/ctrlp.vim'
-	" Plug 'kien/ctrlp.vim'
 	Plug 'scrooloose/nerdtree'
 	Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'jiangmiao/auto-pairs'
@@ -31,6 +32,7 @@ set noswapfile
 
 "Make autocomplete menu auto highlight first option
 set completeopt=menu,noinsert
+set completefunc=emoji#complete
 
 
 " Allow larger undo history
@@ -84,6 +86,9 @@ let mapleader = " "
 " Time before keykode or leader terminated
 set timeout ttimeoutlen=50
 
+" w = save
+nnoremap <leader>w :w!<CR>
+
 " l = unhighlight words
 nnoremap <leader>l :noh<CR>
 
@@ -94,7 +99,13 @@ nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
 nnoremap <leader>n :tabedit<CR>
 
 " e = new tab + :e 
-nnoremap <leader>e :tabedit<CR>:e 
+nnoremap <leader>e :tabfind 
+
+" i = fix file indentation
+nnoremap <leader>i gg=G
+
+" Insert emojis
+nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
