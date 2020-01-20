@@ -13,6 +13,7 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'wellle/targets.vim'
 	Plug 'justinmk/vim-syntax-extra'
+	Plug 'alvan/vim-closetag'
 call plug#end()
 
 colorscheme custom
