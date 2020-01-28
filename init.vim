@@ -14,10 +14,11 @@ call plug#begin()
 	Plug 'wellle/targets.vim'
 	Plug 'justinmk/vim-syntax-extra'
 	Plug 'alvan/vim-closetag'
+	Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
 
 colorscheme custom
-	
+
 set clipboard=unnamedplus
 set mouse=a
 
@@ -99,11 +100,17 @@ nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
 " n = new tab
 nnoremap <leader>n :tabedit<CR>
 
-" e = new tab + :e 
-nnoremap <leader>e :tabfind 
+" e = new tab + :e
+nnoremap <leader>e :tabfind
 
 " i = fix file indentation
 nnoremap <leader>i gg=G
+
+" y = copy entire file
+nnoremap <leader>y ggyG
+
+" f = fix trailing whitespace
+nnoremap <leader>f :FixWhitespace<CR>
 
 " Insert emojis
 nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
