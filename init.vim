@@ -1,41 +1,54 @@
 call plug#begin()
-	Plug 'junegunn/vim-emoji'
-	Plug 'Chiel92/vim-autoformat'
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'scrooloose/nerdtree'
-	Plug 'octol/vim-cpp-enhanced-highlight'
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'rafi/awesome-vim-colorschemes'
+	Plug 'rafi/awesome-vim-colorschemes'   "
+	Plug 'sheerun/vim-polyglot'			   " Colorschemes + syntax highlighting
+	Plug 'justinmk/vim-syntax-extra'	   "
+	Plug 'octol/vim-cpp-enhanced-highlight'"
+
+	Plug 'scrooloose/nerdtree' " Filetree
+	Plug 'ctrlpvim/ctrlp.vim'  " Filesearching
+
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete menu
+
 	Plug 'rhysd/accelerated-jk'
-	Plug 'terryma/vim-multiple-cursors'
+
 	Plug 'tpope/vim-commentary'
-	Plug 'sheerun/vim-polyglot'
-	Plug 'wellle/targets.vim'
-	Plug 'justinmk/vim-syntax-extra'
-	Plug 'alvan/vim-closetag'
+
+	Plug 'jiangmiao/auto-pairs' " Autoclose parentheses etc.
+	Plug 'wellle/targets.vim'   " Target inside text objects
+	Plug 'alvan/vim-closetag'   " Autoclose html tags
+
 	Plug 'bronson/vim-trailing-whitespace'
+
+	Plug 'junegunn/vim-emoji'
 call plug#end()
+packloadall
+
 
 colorscheme custom
 
-set clipboard=unnamedplus
-set mouse=a
+set clipboard=unnamedplus " Share vim clipboard with OS clipboard
+set mouse=a				  " Use mouse in vim
 
 syntax on
-set tabstop=4
-set shiftwidth=4
 set number relativenumber
 let g:deoplete#enable_at_startup=1
-packloadall
-silent! helptags ALL
-set noswapfile
+set completeopt=menu,noinsert   " Make autocomplete menu auto highlight first option
 
-
-"Make autocomplete menu auto highlight first option
-set completeopt=menu,noinsert
+" Ctr + a = Bring out emoji menu
 set completefunc=emoji#complete
+inoremap <C-a> <C-x><C-u>
 
+
+set tabstop=4	  "
+set expandtab     " Configure tabsize = 4
+set softtabstop=4 " and use spaces instead of tabs
+set shiftwidth=4  "
+
+
+" silent! helptags ALL " ?????
+
+
+set noswapfile
 
 " Allow larger undo history
 set undofile                       " use an undo file
@@ -44,22 +57,22 @@ set undolevels=1000
 set undoreload=10000
 
 
+" Change vim-commentary to use // in c files
+autocmd FileType c setlocal commentstring=//\ %s
+
+
 " Keep selection when indenting/outdenting.
 vnoremap > >gv
 vnoremap < <gv
 
-"shift + j = jump 10 lines down
+"shift + j/k = jump 10 lines down/up
 nnoremap <S-J> :+10<CR>
-
-"shift + k = jump 10 lines up
 nnoremap <S-K> :-10<CR>
 
-"Alt + j = move line down
+"Alt + j/k = move line down/up
 nnoremap <A-j> :m.+1<CR>==
 vnoremap <A-j> :m '>+1<CR>gv=gv
 inoremap <A-j> <Esc>:m .+1<CR>==gi
-
-"Alt + k = move line up
 nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
@@ -83,25 +96,29 @@ vnoremap ' d<ESC>i''<ESC>P
 "Don't overwrite clipboard on visual paste
 vnoremap p "_dP
 
+
 " Leader specific maps
 let mapleader = " "
 " Time before keykode or leader terminated
 set timeout ttimeoutlen=50
 
-" w = save
+" w = save file
 nnoremap <leader>w :w!<CR>
 
 " l = unhighlight words
 nnoremap <leader>l :noh<CR>
 
-" t = new tab + ctr + P
-nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
+" p = :CtrlP (search file menu)
+nnoremap <leader>p :CtrlP<CR>
 
 " n = new tab
 nnoremap <leader>n :tabedit<CR>
 
-" e = new tab + :e
-nnoremap <leader>e :tabfind
+" t = new tab + :CtrlP (search file menu)
+nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
+
+" e = open file in new tab
+nnoremap <leader>e :tabfind 
 
 " i = fix file indentation
 nnoremap <leader>i gg=G
@@ -112,8 +129,8 @@ nnoremap <leader>y ggyG
 " f = fix trailing whitespace
 nnoremap <leader>f :FixWhitespace<CR>
 
-" Insert emojis
-nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
+" s = Insert emojis
+nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:noh<CR>
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
@@ -128,5 +145,4 @@ function Tabber1()
 endfunction
 
 call Tabber1()
-
 
