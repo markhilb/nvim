@@ -136,6 +136,13 @@ nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:
 " r = Reverse search through previous : commands
 nnoremap <leader>r q:?
 
+" ' = Replace all " with '
+nnoremap <leader>' :%s /"/'/g<CR>
+
+" " = Replace all ' with "
+nnoremap <leader>" :%s /'/"/g<CR>
+
+
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
 	for i in range(0, 10)
