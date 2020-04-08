@@ -142,6 +142,9 @@ nnoremap <leader>' :%s /"/'/g<CR>
 " " = Replace all ' with "
 nnoremap <leader>" :%s /'/"/g<CR>
 
+" b = :wa | sus (save all files and suspend vim session)
+nnoremap <leader>b :wa<CR> :sus<CR>
+
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
