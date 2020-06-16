@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/mnt/c/Users/mahi/Documents/Dualog/Angular/my-test/src/app'
+let g:netrw_dirhist_3='/mnt/c/Users/mahi/Documents/Dualog/Angular/my-test/src/app/components/todo-card'
+let g:netrw_dirhist_2='/mnt/c/Users/mahi/Documents/Dualog/Angular/my-test/src/app/components'
+let g:netrw_dirhist_1='/mnt/c/Users/mahi/Documents/Dualog/Angular/my-test/src/app'

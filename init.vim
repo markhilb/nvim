@@ -123,8 +123,8 @@ nnoremap <leader>n :tabedit<CR>
 " t = new tab + :CtrlP (search file menu)
 nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
 
-" e = open file in new tab
-nnoremap <leader>e :tabfind 
+" e = new tab + file explorer
+nnoremap <leader>e :tabedit<CR>:Explore<CR>
 
 " i = fix file indentation
 nnoremap <leader>i gg=G
