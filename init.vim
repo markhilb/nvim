@@ -148,7 +148,7 @@ nnoremap <leader>' :%s /"/'/g<CR>
 nnoremap <leader>" :%s /'/"/g<CR>
 
 " b = :wa | sus (save all files and suspend vim session)
-nnoremap <leader>b :wa<CR> :sus<CR>
+nnoremap <leader>b :wa \| sus<CR>
 
 
 "ctr + {number} = go to that tab (ctr + 0 goes to last tab)
