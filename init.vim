@@ -64,8 +64,9 @@ set undolevels=1000
 set undoreload=10000
 
 
-" Change vim-commentary to use // in c files
-autocmd FileType c setlocal commentstring=//\ %s
+" Vim commentary settings
+autocmd FileType c setlocal commentstring=//\ %s " Use // in c files
+autocmd FileType cs setlocal commentstring=//\ %s " Use // in c# files
 
 
 " Keep selection when indenting/outdenting.
