@@ -36,9 +36,10 @@ let g:deoplete#enable_at_startup=1
 set completeopt=menu,noinsert   " Make autocomplete menu auto highlight first option
 
 " CtrlP settings
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
+" let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+" let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files=0 " Remove CtrlP max number of files limit
+let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 
 " Ctr + a = Bring out emoji menu
 set completefunc=emoji#complete
