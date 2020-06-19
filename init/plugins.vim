@@ -1,9 +1,9 @@
 call plug#begin()
-	Plug 'rafi/awesome-vim-colorschemes'   "
-	Plug 'sheerun/vim-polyglot'			   " Colorschemes + syntax highlighting
-	Plug 'justinmk/vim-syntax-extra'	   "
-	Plug 'octol/vim-cpp-enhanced-highlight'"
-    Plug 'ap/vim-css-color'                " Display color of hex values
+	Plug 'rafi/awesome-vim-colorschemes'    "
+	Plug 'sheerun/vim-polyglot'			    " Colorschemes + syntax highlighting
+	Plug 'justinmk/vim-syntax-extra'	    "
+	Plug 'octol/vim-cpp-enhanced-highlight' "
+    Plug 'ap/vim-css-color'                 " Display color of hex values
 
 	Plug 'scrooloose/nerdtree' " Filetree
 	Plug 'ctrlpvim/ctrlp.vim'  " Filesearching

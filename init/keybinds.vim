@@ -1,13 +1,13 @@
-
+"" General keybinds
 " Keep selection when indenting/outdenting.
 vnoremap > >gv
 vnoremap < <gv
 
-"shift + j/k = jump 10 lines down/up
+" Shift + j/k = jump 10 lines down/up
 nnoremap <S-J> :+10<CR>
 nnoremap <S-K> :-10<CR>
 
-"Alt + j/k = move line down/up
+" Alt + j/k = move line down/up
 nnoremap <A-j> :m.+1<CR>==
 vnoremap <A-j> :m '>+1<CR>gv=gv
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -15,16 +15,16 @@ nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
-"tab = go to next tab
+" Tab = go to next tab
 nnoremap <tab> :tabn<CR>
 
-"shift + tab = go to previous tab
+" Shift + tab = go to previous tab
 nnoremap <S-tab> :tabp<CR>
 
-"; = execute previous command
+" ; = execute previous command
 nnoremap ; :<UP><CR>
 
-"Wrap selected inside:
+" Wrap selected inside:
 vnoremap ( d<ESC>i()<ESC>P
 vnoremap [ d<ESC>i[]<ESC>P
 vnoremap { d<ESC>i{}<ESC>P
@@ -35,10 +35,10 @@ vnoremap ' d<ESC>i''<ESC>P
 vnoremap p "_dP
 
 
-" Leader specific maps
+"" Leader specific maps
+" Set leader key to space
 let mapleader = " "
-" Time before keykode or leader terminated
-set timeout ttimeoutlen=50
+set timeout ttimeoutlen=50 " Time before keykode or leader terminated
 
 " w = save file
 nnoremap <leader>w :w!<CR>
@@ -82,8 +82,7 @@ nnoremap <leader>" :%s /'/"/g<CR>
 " b = :wa | sus (save all files and suspend vim session)
 nnoremap <leader>b :wa \| sus<CR>
 
-
-"ctr + {number} = go to that tab (ctr + 0 goes to last tab)
+" ctr + {number} = go to that tab (ctr + 0 goes to last tab)
 function Tabber1()
 	for i in range(0, 10)
 		if i == 0
