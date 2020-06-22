@@ -1,4 +1,4 @@
-source $HOME/.config/nvim/init/plugins.vim
-source $HOME/.config/nvim/init/settings.vim
-source $HOME/.config/nvim/init/keybinds.vim
-
+" Load all vim files in the init directory
+for vim_file in split(glob('$HOME/.config/nvim/init/*.vim'), '\n')
+	exe 'source' vim_file
+endfor
