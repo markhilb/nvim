@@ -40,49 +40,49 @@ vnoremap p "_dP
 let mapleader = " "
 set timeout ttimeoutlen=50 " Time before keykode or leader terminated
 
-" w = save file
+" <leader>w = save file
 nnoremap <leader>w :w!<CR>
 
-" l = unhighlight words
+" <leader>l = unhighlight words
 nnoremap <leader>l :noh<CR>
 
-" p = :CtrlP (search file menu)
+" <leader>p = :CtrlP (search file menu)
 nnoremap <leader>p :CtrlP<CR>
 
-" n = new tab
+" <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
 
-" t = new tab + :CtrlP (search file menu)
+" <leader>t = new tab + :CtrlP (search file menu)
 nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
 
-" e = new tab + file explorer
+" <leader>e = new tab + file explorer
 nnoremap <leader>e :tabedit<CR>:Explore<CR>
 
-" i = fix file indentation
+" <leader>i = fix file indentation
 nnoremap <leader>i gg=G
 
-" y = copy entire file
+" <leader>y = copy entire file
 nnoremap <leader>y ggyG
 
-" f = fix trailing whitespace
+" <leader>f = fix trailing whitespace
 nnoremap <leader>f :FixWhitespace<CR>
 
-" s = Insert emojis
+" <leader>s = Insert emojis
 nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:noh<CR>
 
-" r = Reverse search through previous : commands
+" <leader>r = Reverse search through previous : commands
 nnoremap <leader>r q:?
 
-" ' = Replace all " with '
+" <leader>' = Replace all " with '
 nnoremap <leader>' :%s /"/'/g<CR>
 
-" " = Replace all ' with "
+" <leader>" = Replace all ' with "
 nnoremap <leader>" :%s /'/"/g<CR>
 
-" b = :wa | sus (save all files and suspend vim session)
+" <leader>b = :wa | sus (save all files and suspend vim session)
 nnoremap <leader>b :wa \| sus<CR>
 
-" ctr + {number} = go to that tab (ctr + 0 goes to last tab)
+" Alt + {number} = go to that tab (alt + 0 goes to last tab)
 function Tabber1()
 	for i in range(0, 10)
 		if i == 0
