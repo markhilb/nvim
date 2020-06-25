@@ -27,8 +27,7 @@ set completeopt=menu,noinsert      " Make autocomplete menu auto highlight first
 "" CtrlP settings
 let g:ctrlp_show_hidden=1                           " Show hidden files
 let g:ctrlp_max_files=0                             " Remove CtrlP max number of files limit
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git)$'
 
 
 "" Emoji settings
