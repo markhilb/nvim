@@ -21,6 +21,8 @@ call plug#begin()
 	Plug 'bronson/vim-trailing-whitespace'
 
 	Plug 'junegunn/vim-emoji'
+
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 packloadall
 
