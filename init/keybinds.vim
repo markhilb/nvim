@@ -82,6 +82,9 @@ nnoremap <leader>" :%s /'/"/g<CR>
 " <leader>b = :wa | sus (save all files and suspend vim session)
 nnoremap <leader>b :wa \| sus<CR>
 
+" <leader>a = PrettierAsync
+nnoremap <leader>a :PrettierAsync<CR>
+
 " Alt + {number} = go to that tab (alt + 0 goes to last tab)
 function Tabber1()
 	for i in range(0, 10)
