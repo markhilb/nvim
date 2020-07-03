@@ -85,6 +85,18 @@ nnoremap <leader>b :wa \| sus<CR>
 " <leader>a = PrettierAsync
 nnoremap <leader>a :PrettierAsync<CR>
 
+" <leader>h = Horisontal split into blank document
+nnoremap <leader>h :new<CR>
+
+" <leader>v = Vertical split into blank document
+nnoremap <leader>v :vnew<CR>
+
+" <leader><arrow-key> = Navigate vim splits
+nnoremap <leader><Up> <C-w><Up>
+nnoremap <leader><Down> <C-w><Down>
+nnoremap <leader><Left> <C-w><Left>
+nnoremap <leader><Right> <C-w><Right>
+
 " Alt + {number} = go to that tab (alt + 0 goes to last tab)
 function Tabber1()
 	for i in range(0, 10)
