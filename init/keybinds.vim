@@ -61,6 +61,9 @@ nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
 " <leader>e = new tab + file explorer
 nnoremap <leader>e :tabedit<CR>:Explore<CR>
 
+" <leader>E = file explorer
+nnoremap <leader>E :Explore<CR>
+
 " <leader>i = fix file indentation
 nnoremap <leader>i gg=G
 
