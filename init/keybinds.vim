@@ -34,6 +34,9 @@ vnoremap ' d<ESC>i''<ESC>P
 "Don't overwrite clipboard on visual paste
 vnoremap p "_dP
 
+" Don't go to next word when highlighting
+nnoremap <silent>* :execute "normal! *N"<CR>
+nnoremap <silent># :execute "normal! #N"<CR>
 
 "" Leader specific maps
 " Set leader key to space
