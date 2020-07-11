@@ -38,6 +38,9 @@ vnoremap p "_dP
 nnoremap <silent>* :execute "normal! *N"<CR>
 nnoremap <silent># :execute "normal! #N"<CR>
 
+" F5 = Reload all files
+nnoremap <F5> :bufdo! e<CR>
+
 "" Leader specific maps
 " Set leader key to space
 let mapleader = " "
