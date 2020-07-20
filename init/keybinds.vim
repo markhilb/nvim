@@ -95,10 +95,10 @@ nnoremap <leader>b :wa \| sus<CR>
 nnoremap <leader>a :PrettierAsync<CR>
 
 " <leader>h = Horisontal split into blank document
-nnoremap <leader>h :new<CR>
+nnoremap <leader>h :new<CR><C-w>r
 
 " <leader>v = Vertical split into blank document
-nnoremap <leader>v :vnew<CR>
+nnoremap <leader>v :vnew<CR><C-w>r
 
 " <leader><arrow-key> = Navigate vim splits
 nnoremap <leader><Up> <C-w><Up>
