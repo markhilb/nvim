@@ -6,9 +6,10 @@ call plug#begin()
     Plug 'ap/vim-css-color'                 " Display color of hex values
 
 	Plug 'scrooloose/nerdtree' " Filetree
-	Plug 'ctrlpvim/ctrlp.vim'  " Filesearching
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete menu
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete menu
 
 	Plug 'rhysd/accelerated-jk'
 

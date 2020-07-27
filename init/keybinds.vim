@@ -52,14 +52,14 @@ nnoremap <leader>w :w!<CR>
 " <leader>l = unhighlight words
 nnoremap <leader>l :noh<CR>
 
-" <leader>p = :CtrlP (search file menu)
-nnoremap <leader>p :CtrlP<CR>
+" <leader>p = :FZFSearch (search file menu)
+nnoremap <leader>p :FZFSearch<CR>
 
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
 
-" <leader>t = new tab + :CtrlP (search file menu)
-nnoremap <leader>t :tabedit<CR>:CtrlP<CR>
+" <leader>t = new tab + :FZFSearch (search file menu)
+nnoremap <leader>t :tabedit<CR>:FZFSearch<CR>
 
 " <leader>e = new tab + file explorer
 nnoremap <leader>e :tabedit<CR>:Explore<CR>
@@ -105,6 +105,20 @@ nnoremap <leader><Up> <C-w><Up>
 nnoremap <leader><Down> <C-w><Down>
 nnoremap <leader><Left> <C-w><Left>
 nnoremap <leader><Right> <C-w><Right>
+
+
+" Function to make FZF search from git root if in git repo.
+" Else, search from current directory
+function! s:fzf_find_files()
+    let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    if git_root != ''
+        execute 'Files' git_root
+    else
+        execute 'Files'
+    endif
+endfunction
+command! FZFSearch execute s:fzf_find_files()
+
 
 " Alt + {number} = go to that tab (alt + 0 goes to last tab)
 function Tabber1()

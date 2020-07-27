@@ -24,11 +24,14 @@ let g:deoplete#enable_at_startup=1
 set completeopt=menu,noinsert      " Make autocomplete menu auto highlight first option
 
 
-"" CtrlP settings
-let g:ctrlp_show_hidden=1                           " Show hidden files
-let g:ctrlp_max_files=0                             " Remove CtrlP max number of files limit
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|.git|bin|obj|target)$'
-
+"" FZF settings
+let g:fzf_preview_window = '' " Disable preview window when searching
+" Customize fzf search function to ignore folders and show hidden files
+let $FZF_DEFAULT_COMMAND = 'find . type f \( -name node_modules -o
+                                           \ -name .git -o
+                                           \ -name bin -o
+                                           \ -name obj
+                                           \ \) -prune -o -print'
 
 "" Emoji settings
 set completefunc=emoji#complete
