@@ -5,7 +5,6 @@ call plug#begin()
 	Plug 'octol/vim-cpp-enhanced-highlight' "
     Plug 'ap/vim-css-color'                 " Display color of hex values
 
-	Plug 'scrooloose/nerdtree' " Filetree
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
