@@ -18,6 +18,8 @@ set undodir=$HOME/.vim/undo " Undo file path
 set undolevels=1000         " Allow larger undo history
 set undoreload=10000
 
+" Explore (netrw)
+let g:netrw_keepdir=0 " Need this to duplicate files in netrw
 
 "" Deoplete settings
 let g:deoplete#enable_at_startup=1
