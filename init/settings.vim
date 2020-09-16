@@ -28,6 +28,7 @@ set completeopt=menu,noinsert      " Make autocomplete menu auto highlight first
 
 "" FZF settings
 let g:fzf_preview_window = '' " Disable preview window when searching
+let g:fzf_layout = { 'down': '40%'  } " Place fzf window on bottom of screen, height = 40%
 " Customize fzf search function to ignore folders and show hidden files
 let $FZF_DEFAULT_COMMAND = 'find . -type d \( -name node_modules -o
                                            \ -name .git -o
