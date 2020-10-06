@@ -4,8 +4,8 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Shift + j/k = jump 10 lines down/up
-nnoremap <S-J> :+10<CR>
-nnoremap <S-K> :-10<CR>
+nnoremap <S-J> 10j
+nnoremap <S-K> 10k
 
 " Alt + j/k = move line down/up
 nnoremap <A-j> :m.+1<CR>==
