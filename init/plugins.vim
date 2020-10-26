@@ -10,7 +10,7 @@ call plug#begin()
 
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete menu
 
-    Plug 'rhysd/accelerated-jk'
+    Plug 'easymotion/vim-easymotion'
 
     Plug 'tpope/vim-commentary'
 

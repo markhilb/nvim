@@ -106,6 +106,8 @@ nnoremap <leader><Down> <C-w><Down>
 nnoremap <leader><Left> <C-w><Left>
 nnoremap <leader><Right> <C-w><Right>
 
+" Open vim easymotion
+nmap <leader>m <Plug>(easymotion-overwin-f)
 
 " Function to make FZF search from git root if in git repo.
 " Else, search from current directory
