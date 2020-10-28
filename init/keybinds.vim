@@ -31,15 +31,15 @@ vnoremap { d<ESC>i{}<ESC>P
 vnoremap " d<ESC>i""<ESC>P
 vnoremap ' d<ESC>i''<ESC>P
 
-"Don't overwrite clipboard on visual paste
+" Don't overwrite clipboard on visual paste
 vnoremap p "_dP
 
 " Don't go to next word when highlighting
 nnoremap <silent>* :execute "normal! *N"<CR>
 nnoremap <silent># :execute "normal! #N"<CR>
 
-" F5 = Reload all files
-nnoremap <F5> :bufdo! e<CR>
+" Open vim easymotion
+nmap r <Plug>(easymotion-overwin-f)
 
 "" Leader specific maps
 " Set leader key to space
@@ -105,9 +105,6 @@ nnoremap <leader><Up> <C-w><Up>
 nnoremap <leader><Down> <C-w><Down>
 nnoremap <leader><Left> <C-w><Left>
 nnoremap <leader><Right> <C-w><Right>
-
-" Open vim easymotion
-nmap <leader>m <Plug>(easymotion-overwin-f)
 
 " Function to make FZF search from git root if in git repo.
 " Else, search from current directory
