@@ -43,6 +43,8 @@ inoremap <C-a> <C-x><C-u>
 "" EasyMotion settings
 let g:EasyMotion_do_mapping = 0 " Disable all default mappings
 let g:EasyMotion_smartcase = 1 " Ignore cases
+let g:EasyMotion_key = get(
+    \ g:, 'EasyMotion_keys', 'asdghklqwertyuiopcvbnmfj') " Define the keys used
 
 
 "" Vim commentary settings
