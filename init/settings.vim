@@ -29,6 +29,7 @@ set completeopt=menu,noinsert      " Make autocomplete menu auto highlight first
 "" FZF settings
 " Customize fzf search function to ignore folders and show hidden files
 let $FZF_DEFAULT_COMMAND = 'find . -type d \( -name node_modules -o
+                                           \ -name target -o
                                            \ -name .git -o
                                            \ -name bin -o
                                            \ -name obj
