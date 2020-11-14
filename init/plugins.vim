@@ -22,7 +22,7 @@ call plug#begin()
 
     Plug 'junegunn/vim-emoji'
 
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
     Plug 'APZelos/blamer.nvim' " Git blame
 call plug#end()
