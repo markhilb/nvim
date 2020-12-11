@@ -55,6 +55,9 @@ nnoremap <leader>l :noh<CR>
 " <leader>p = :FZFSearch (search file menu)
 nnoremap <leader>p :FZFSearch<CR>
 
+" <leader>g = :Ag (Fzf grep search)
+nnoremap <leader>g :Ag<CR>
+
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
 
