@@ -54,4 +54,5 @@ autocmd FileType cs setlocal commentstring=//\ %s " Use // in c# files
 
 "" Blamer settings
 let g:blamer_template = '<author>, <author-time> • <summary>'
+let g:blamer_enabled = 1
 
