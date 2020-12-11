@@ -15,11 +15,11 @@ nnoremap <A-k> :m.-2<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
-" Tab = go to next tab
-nnoremap <tab> :tabn<CR>
+" t = go to next tab
+nnoremap t :tabn<CR>
 
-" Shift + tab = go to previous tab
-nnoremap <S-tab> :tabp<CR>
+" Shift + t = go to previous tab
+nnoremap <S-t> :tabp<CR>
 
 " ; = execute previous command
 nnoremap ; :<UP><CR>
