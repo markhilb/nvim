@@ -55,8 +55,8 @@ nnoremap <leader>l :noh<CR>
 " <leader>p = :FZFSearch (search file menu)
 nnoremap <leader>p :FZFSearch<CR>
 
-" <leader>g = :Ag (Fzf grep search)
-nnoremap <leader>g :Ag<CR>
+" <leader>g = Fzf grep search (also rebind select/deselect all bindings to ctrl-a/ctrl-d)
+nnoremap <leader>g :call fzf#vim#ag('', '--hidden', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})<CR>
 
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
