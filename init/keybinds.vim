@@ -61,9 +61,6 @@ nnoremap <leader>g :call fzf#vim#ag('', '--hidden', {'options': '--bind ctrl-a:s
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
 
-" <leader>t = new tab + :FZFSearch (search file menu)
-nnoremap <leader>t :tabedit<CR>:FZFSearch<CR>
-
 " <leader>e = new tab + file explorer
 nnoremap <leader>e :tabedit<CR>:Explore<CR>
 
