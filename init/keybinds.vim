@@ -77,7 +77,7 @@ nnoremap <leader>i gg=G
 nnoremap <leader>y ggyG
 
 " <leader>f = fix trailing whitespace
-nnoremap <leader>f mq :FixWhitespace<CR> 'q
+nnoremap <leader>f :mark q \| FixWhitespace<CR> 'q
 
 " <leader>s = Insert emojis
 nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:noh<CR>
@@ -127,14 +127,14 @@ command! FZFSearch execute s:fzf_find_files()
 
 " Alt + {number} = go to that tab (alt + 0 goes to last tab)
 function Tabber1()
-	for i in range(0, 10)
-		if i == 0
-			let s:cmd = 'nnoremap <A-' . 0 . '> ' . 1 . 'gt \| :tabp<CR>'
-		else
-			let s:cmd = 'nnoremap <A-' . i . '> ' . i . 'gt'
-		endif
-		execute s:cmd
-	endfor
+    for i in range(0, 10)
+        if i == 0
+            let s:cmd = 'nnoremap <A-' . 0 . '> ' . 1 . 'gt \| :tabp<CR>'
+        else
+            let s:cmd = 'nnoremap <A-' . i . '> ' . i . 'gt'
+        endif
+        execute s:cmd
+    endfor
 endfunction
 
 call Tabber1()
