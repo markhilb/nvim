@@ -113,11 +113,7 @@ nnoremap <leader><Right> <C-w><Right>
 " Else, search from current directory
 function! s:fzf_find_files()
     let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-    if git_root != ''
-        execute 'Files' git_root
-    else
-        execute 'Files'
-    endif
+    execute 'Files' git_root
 endfunction
 command! FZFSearch execute s:fzf_find_files()
 
