@@ -55,8 +55,8 @@ nnoremap <leader>l :noh<CR>
 " <leader>p = :FZFSearch (search file menu)
 nnoremap <leader>p :FZFSearch<CR>
 
-" <leader>g = Fzf grep search (also rebind select/deselect all bindings to ctrl-a/ctrl-d)
-nnoremap <leader>g :call fzf#vim#ag('', '--hidden', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})<CR>
+" <leader>g = Fzf grep search
+nnoremap <leader>g :AgSearch<CR>
 
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
@@ -117,3 +117,14 @@ function! s:fzf_find_files()
 endfunction
 command! FZFSearch execute s:fzf_find_files()
 
+" Function to make Ag search from git root if in git repo.
+" Else, search from current directory
+" (also rebind select/deselect all bindings to ctrl-a/ctrl-d)
+function! s:ag_search(bang)
+    let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    call fzf#vim#ag(join(a:000[1:], ' '),
+                  \ fzf#vim#with_preview({'dir': git_root,
+                                        \ 'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'}),
+                  \ a:bang)
+endfunction
+command! -bang -complete=dir AgSearch call s:ag_search(<bang>0)
