@@ -123,6 +123,7 @@ command! FZFSearch execute s:fzf_find_files()
 function! s:ag_search(bang)
     let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
     call fzf#vim#ag(join(a:000[1:], ' '),
+                  \ '--hidden --ignore-dir={node_modules,.git,target,bin,obj}',
                   \ fzf#vim#with_preview({'dir': git_root,
                                         \ 'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'}),
                   \ a:bang)
