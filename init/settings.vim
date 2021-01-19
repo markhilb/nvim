@@ -51,6 +51,7 @@ let g:EasyMotion_keys = get(
 "" Vim commentary settings
 autocmd FileType c setlocal commentstring=//\ %s  " Use // in c files
 autocmd FileType cs setlocal commentstring=//\ %s " Use // in c# files
+autocmd FileType fsharp setlocal commentstring=//\ %s " Use // in f# files
 
 "" Blamer settings
 let g:blamer_template = '<author>, <author-time> • <summary>'
