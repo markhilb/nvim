@@ -98,7 +98,7 @@ nnoremap <leader>b :wa \| sus<CR>
 nnoremap <leader>B :BlamerToggle<CR>
 
 " <leader>a = PrettierAsync
-nnoremap <leader>a :PrettierAsync<CR>
+nnoremap <leader>a :w \| PrettierAsync<CR>
 
 " <leader>h = Horisontal split into blank document
 nnoremap <leader>h :new<CR><C-w>r
