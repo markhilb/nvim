@@ -97,8 +97,8 @@ nnoremap <leader>b :wa \| sus<CR>
 " <leader>B = :BlamerToggle
 nnoremap <leader>B :BlamerToggle<CR>
 
-" <leader>a = PrettierAsync
-nnoremap <leader>a :w \| PrettierAsync<CR>
+" <leader>a = Format
+nnoremap <leader>a :Format<CR>
 
 " <leader>h = Horisontal split into blank document
 nnoremap <leader>h :new<CR><C-w>r
@@ -132,3 +132,19 @@ function! s:ag_search(bang)
                   \ a:bang)
 endfunction
 command! -bang -complete=dir AgSearch call s:ag_search(<bang>0)
+
+" Use correct formatter depending on filetype
+function! s:format()
+    execute 'w'
+    let filetype = &filetype
+    if filetype == 'fsharp'
+        execute 'silent !fantomas %'
+        execute 'e'
+    elseif filetype == 'rust'
+        execute 'silent !rustfmt %'
+        execute 'e'
+    else
+        execute 'PrettierAsync'
+    endif
+endfunction
+command! Format call s:format()
