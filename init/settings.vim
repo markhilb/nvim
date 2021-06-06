@@ -29,10 +29,10 @@ set completeopt=menu,noinsert      " Make autocomplete menu auto highlight first
 "" FZF settings
 " Customize fzf search function to ignore folders and show hidden files
 let $FZF_DEFAULT_COMMAND = 'find . -type d \( -name node_modules -o
-                                           \ -name target -o
-                                           \ -name .git -o
-                                           \ -name bin -o
-                                           \ -name obj
+                                           \  -name target -o
+                                           \  -name .git -o
+                                           \  -name bin -o
+                                           \  -name obj
                                            \ \) -prune -o -print'
 
 "" Emoji settings
@@ -44,8 +44,7 @@ inoremap <C-a> <C-x><C-u>
 "" EasyMotion settings
 let g:EasyMotion_do_mapping = 0 " Disable all default mappings
 let g:EasyMotion_smartcase = 1 " Ignore cases
-let g:EasyMotion_keys = get(
-    \ g:, 'EasyMotion_keys', 'asdghklqwertyuiopcvbnmfj') " Define the keys used
+let g:EasyMotion_keys = get(g:, 'EasyMotion_keys', 'asdghklqwertyuiopcvbnmfj') " Define the keys used
 
 
 "" Vim commentary settings
