@@ -77,7 +77,7 @@ nnoremap <leader>i gg=G
 nnoremap <leader>y ggyG
 
 " <leader>f = fix trailing whitespace
-nnoremap <leader>f :mark q \| FixWhitespace<CR> 'q
+nnoremap <silent><leader>f :mark q \| FixWhitespace<CR> 'q :w<CR>
 
 " <leader>s = Insert emojis
 nnoremap <leader>s :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:noh<CR>
