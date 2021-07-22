@@ -195,7 +195,7 @@ call s:hi('SpecialKey'     , 59  , '' , 'None' , 'None')
 call s:hi('SpecialChar'    , 171 , '' , 'bold' , 'bold')
 call s:hi('SpecialComment' , 243  , '' , 'None' , 'None')
 
-call s:hi('SpellBad'   , 168 , '' , 'underline' , 'undercurl')
+call s:hi('SpellBad'   , 254 , '' , 'underline' , 'undercurl')
 call s:hi('SpellCap'   , 110 , '' , 'underline' , 'undercurl')
 call s:hi('SpellLocal' , 253 , '' , 'underline' , 'undercurl')
 call s:hi('SpellRare'  , 218 , '' , 'underline' , 'undercurl')
