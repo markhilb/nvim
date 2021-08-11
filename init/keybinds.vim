@@ -44,6 +44,20 @@ nnoremap <silent># :execute "normal! #N"<CR>
 " Open vim easymotion
 nmap r <Plug>(easymotion-overwin-f)
 
+
+"" ALE
+" Go to definition
+nmap gd <Plug>(ale_go_to_definition)
+nmap gt <Plug>(ale_go_to_definition_in_tab)
+
+" Rename variable
+nmap gr <Plug>(ale_rename)
+
+" Go to next/prev error
+nmap gn <Plug>(ale_next_wrap)
+nmap gp <Plug>(ale_previous_wrap)
+
+
 "" Leader specific maps
 " Set leader key to space
 let mapleader = " "
@@ -112,6 +126,44 @@ nnoremap <leader><Down> <C-w><Down>
 nnoremap <leader><Left> <C-w><Left>
 nnoremap <leader><Right> <C-w><Right>
 
+
+"" Omnisharp
+augroup omnisharp_commands
+  autocmd!
+
+  autocmd CursorHold *.cs OmniSharpTypeLookup
+
+  autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
+  autocmd FileType cs nmap <silent> <buffer> gp <Plug>(omnisharp_preview_definition)
+  autocmd FileType cs nmap <silent> <buffer> gf <Plug>(omnisharp_find_usages)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>opi <Plug>(omnisharp_preview_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ot <Plug>(omnisharp_type_lookup)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>od <Plug>(omnisharp_documentation)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ofs <Plug>(omnisharp_find_symbol)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ou <Plug>(omnisharp_fix_usings)
+  autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+  autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+
+  autocmd FileType cs nmap <silent> <buffer> [[ <Plug>(omnisharp_navigate_up)
+  autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>o. <Plug>(omnisharp_code_action_repeat)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>o. <Plug>(omnisharp_code_action_repeat)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>or <Plug>(omnisharp_rename)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osr <Plug>(omnisharp_restart_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>oss <Plug>(omnisharp_start_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osp <Plug>(omnisharp_stop_server)
+augroup END
+
+
 " Function to make FZF search from git root if in git repo.
 " Else, search from current directory
 function! s:fzf_find_files()
@@ -138,6 +190,8 @@ function! s:format()
     if filetype == 'fsharp'
         execute 'silent !fantomas %'
         execute 'e'
+    elseif filetype == 'cs'
+        execute 'OmniSharpCodeFormat | w'
     elseif filetype == 'rust'
         execute 'silent !rustfmt %'
         execute 'e'

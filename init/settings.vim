@@ -58,3 +58,14 @@ autocmd FileType fsharp setlocal commentstring=//\ %s " Use // in f# files
 let g:blamer_template = '<author>, <author-time> • <summary>'
 let g:blamer_enabled = 1
 
+"" ALE
+" let g:ale_toggle = 1
+let g:ale_completion_autoimport = 1
+let g:ale_linters = {
+    \ 'cs': ['csc', 'mcs', 'mcsc', 'Omnisharp'],
+\}
+
+"" Omnisharp
+let g:asyncomplete_auto_popup = 1
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_selector_findusages = 'fzf'

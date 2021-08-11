@@ -24,6 +24,9 @@ call plug#begin()
 
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
+    Plug 'dense-analysis/ale'
+    Plug 'OmniSharp/omnisharp-vim'
+
     Plug 'APZelos/blamer.nvim' " Git blame
 call plug#end()
 packloadall
