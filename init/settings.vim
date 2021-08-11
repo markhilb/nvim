@@ -23,8 +23,8 @@ let g:netrw_keepdir=0 " Need this to duplicate files in netrw
 
 "" Deoplete settings
 let g:deoplete#enable_at_startup=1
+call deoplete#custom#source('_', 'max_menu_width', 0)
 set completeopt=menuone,noinsert    " Make autocomplete menu auto highlight first option
-
 
 
 "" FZF settings
