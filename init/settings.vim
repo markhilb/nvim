@@ -69,3 +69,4 @@ let g:ale_linters = {
 let g:asyncomplete_auto_popup = 1
 let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_selector_findusages = 'fzf'
+let g:OmniSharp_diagnostic_exclude_paths = ['obj/Debug']
