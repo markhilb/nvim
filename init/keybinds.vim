@@ -46,14 +46,13 @@ nmap r <Plug>(easymotion-overwin-f)
 
 
 "" ALE
-" Go to definition
 nmap gd <Plug>(ale_go_to_definition)
 nmap gt <Plug>(ale_go_to_definition_in_tab)
 
-" Rename variable
+nmap gf <Plug>(ale_find_references)
+
 nmap gr <Plug>(ale_rename)
 
-" Go to next/prev error
 nmap gn <Plug>(ale_next_wrap)
 nmap gp <Plug>(ale_previous_wrap)
 
