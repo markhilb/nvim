@@ -68,11 +68,15 @@ nnoremap <leader>w :w!<CR>
 " <leader>l = unhighlight words
 nnoremap <leader>l :noh<CR>
 
-" <leader>p = :FZFSearch (search file menu)
+" <leader>p = :FZFSearch
 nnoremap <leader>p :FZFSearch<CR>
+" <leader>P = :Files
+nnoremap <leader>P :Files .<CR>
 
 " <leader>g = Fzf grep search
 nnoremap <leader>g :AgSearch<CR>
+" <leader>G = Fzf grep search from current directory
+nnoremap <leader>G :Ag<CR>
 
 " <leader>n = new tab
 nnoremap <leader>n :tabedit<CR>
@@ -176,7 +180,6 @@ command! FZFSearch execute s:fzf_find_files()
 function! s:ag_search(bang)
     let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
     call fzf#vim#ag(join(a:000[1:], ' '),
-                  \ '--hidden --ignore-dir={node_modules,.git,target,bin,obj}',
                   \ fzf#vim#with_preview({'dir': git_root}),
                   \ a:bang)
 endfunction
