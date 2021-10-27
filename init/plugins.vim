@@ -8,8 +8,6 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete menu
-
     Plug 'easymotion/vim-easymotion'
 
     Plug 'tpope/vim-commentary'
@@ -24,8 +22,8 @@ call plug#begin()
 
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-    Plug 'dense-analysis/ale'
     Plug 'OmniSharp/omnisharp-vim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'APZelos/blamer.nvim' " Git blame
 call plug#end()
