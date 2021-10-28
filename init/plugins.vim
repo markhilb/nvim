@@ -24,6 +24,7 @@ call plug#begin()
 
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
     Plug 'APZelos/blamer.nvim' " Git blame
 call plug#end()
