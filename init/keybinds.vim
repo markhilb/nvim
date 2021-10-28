@@ -167,20 +167,22 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use `gn` and `gp` to navigate diagnostics
+" Use `gn` and `gN` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> gn <Plug>(coc-diagnostic-next)
-nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gN <Plug>(coc-diagnostic-prev)
 nmap <leader>cd  :CocDiagnostics<CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt :call CocAction('jumpDefinition', 'tab drop')<CR>
+nmap <silent> gp :call CocAction('jumpDefinition', v:false)<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use gt to show documentation in preview window.
-nnoremap <silent> gt :call <SID>show_documentation()<CR>
+nnoremap <leader>ct :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
