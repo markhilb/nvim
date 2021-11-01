@@ -99,3 +99,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Start tsserver.watchBuild automatically
+autocmd FileType typescript call CocAction('runCommand', 'tsserver.watchBuild')

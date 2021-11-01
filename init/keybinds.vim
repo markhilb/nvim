@@ -67,7 +67,7 @@ nnoremap <leader>g :AgSearch<CR>
 nnoremap <leader>G :Ag<CR>
 
 " <leader>n = new tab
-nnoremap <leader>n :tabedit<CR>
+nnoremap <silent><leader>n :tabedit<CR>
 
 " <leader>e = new tab + file explorer
 nnoremap <leader>e :tabedit<CR>:Explore<CR>
@@ -116,6 +116,9 @@ nnoremap <leader><Up> <C-w><Up>
 nnoremap <leader><Down> <C-w><Down>
 nnoremap <leader><Left> <C-w><Left>
 nnoremap <leader><Right> <C-w><Right>
+
+" <leader>o = Open quick fix list
+nnoremap <leader>o :copen<CR>
 
 
 "" Omnisharp
