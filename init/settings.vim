@@ -30,6 +30,7 @@ let $FZF_DEFAULT_COMMAND = 'find . -type d \( -name node_modules -o
                                            \  -name target -o
                                            \  -name .git -o
                                            \  -name bin -o
+                                           \  -name out-tsc -o
                                            \  -name obj
                                            \ \) -prune -o -print'
 
