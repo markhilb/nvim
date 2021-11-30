@@ -169,8 +169,13 @@ vim.cmd(
       autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
       autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
 
+      autocmd FileType cs nmap <silent> <buffer> <Leader>co :copen<CR>
+      autocmd FileType cs nmap <silent> <buffer> <Leader>cO :cclose<CR>
+
       autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
       autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
+
+      autocmd FileType cs nmap <silent> <buffer> <Leader>a :OmniSharpCodeFormat\| w<CR>
 
       autocmd FileType cs nmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
       autocmd FileType cs xmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
