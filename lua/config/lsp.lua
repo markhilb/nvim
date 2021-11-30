@@ -12,7 +12,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 -- npm i -g pyright
 require("lspconfig").pyright.setup({})
 
--- npm i -g typesript typescript-language-server
+-- npm i -g typescript typescript-language-server
 require("lspconfig").tsserver.setup({})
 
 -- npm i -g vscode-langservers-extracted
