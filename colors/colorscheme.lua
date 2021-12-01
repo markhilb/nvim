@@ -77,10 +77,10 @@ highlight(
     iCursor = {link = "Cursor"},
     lCursor = {link = "Cursor"},
     TransparentCursor = {gui = "strikethrough", blend = 100},
-    CursorLine = {guifg = c.red, guibg = c.bg},
+    CursorLine = {guifg = "NONE", guibg = "NONE"},
     CursorColumn = {guifg = "NONE", guibg = c.bg},
     LineNr = {guifg = c.grey, guibg = "NONE"},
-    CursorLineNr = {guifg = c.pink2, guibg = "NONE"}, -- TODO: Fix highlight
+    CursorLineNr = {guifg = c.pink2, guibg = "NONE"},
     DiffAdd = {guifg = "NONE", guibg = c.diff_green},
     DiffChange = {guifg = "NONE", guibg = c.diff_blue},
     DiffDelete = {guifg = "NONE", guibg = c.diff_red},

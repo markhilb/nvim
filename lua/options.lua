@@ -6,6 +6,7 @@ opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
+opt.cursorline = true
 opt.scrolloff = 8
 opt.termguicolors = true
 
