@@ -79,6 +79,11 @@ nmap("<Leader>w", ":w<CR>")
 nmap("<Leader>W", ":w!<CR>")
 nmap("<Leader>b", ":wa | sus<CR>")
 
+-- Quickfix list
+nmap("<Leader>co", ":copen<CR>")
+nmap("<Leader>cO", ":cclose<CR>")
+nmap("<Leader>CO", ":cclose<CR>")
+
 -- Unhighlight search
 nmap("<Leader>l", ":noh<CR>", {silent = true})
 
@@ -136,13 +141,13 @@ nmap("<Leader>ts", "History/<CR>")
 
 -- Lsp
 nmap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-nmap("gD", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+nmap("gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 nmap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 nmap("gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
 nmap("gN", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
 nmap("gr", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nmap("gk", "<cmd>lua vim.lsp.buf.hover()<CR>")
-nmap("gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+nmap("gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 nmap("<Leader>ca", ":CodeActionMenu<CR>", {silent = true})
 nmap("<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 
@@ -168,9 +173,6 @@ vim.cmd(
       autocmd FileType cs nmap <silent> <buffer> <Leader>ou <Plug>(omnisharp_fix_usings)
       autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
       autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>co :copen<CR>
-      autocmd FileType cs nmap <silent> <buffer> <Leader>cO :cclose<CR>
 
       autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
       autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
