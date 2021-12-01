@@ -116,6 +116,9 @@ nmap("<Leader>y", "ggyG")
 -- Plugin maps
 --
 
+-- Packer
+nmap("<Leader>s", ":PackerSync<CR>")
+
 -- Formatter
 nmap("<Leader>a", ":w | FormatWrite<CR>")
 
