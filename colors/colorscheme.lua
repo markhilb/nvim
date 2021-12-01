@@ -174,7 +174,7 @@ highlight(
     TSException = {guifg = c.red},
     TSField = {guifg = c.fg},
     TSFloat = {guifg = c.purple4},
-    TSFuncBuiltin = {guifg = c.green},
+    TSFuncBuiltin = {guifg = c.pink2},
     TSFuncMacro = {guifg = c.green},
     TSFunction = {guifg = c.pink2},
     TSInclude = {guifg = c.purple3},

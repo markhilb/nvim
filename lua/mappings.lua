@@ -1,20 +1,5 @@
-local function map(mode, left, right, opts)
-  local options = {noremap = true}
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, left, right, options)
-end
-
-local function nmap(left, right, opts)
-  map("n", left, right, opts)
-end
-local function vmap(left, right, opts)
-  map("v", left, right, opts)
-end
-local function imap(left, right, opts)
-  map("i", left, right, opts)
-end
+local utils = require("utils")
+local nmap, vmap, imap = utils.nmap, utils.vmap, utils.imap
 
 -- Keep selection when indenting/outdenting
 vmap(">", ">gv")
