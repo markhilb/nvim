@@ -55,10 +55,6 @@ nmap("<S-Right>", ":vertical resize +5<CR>", {silent = true})
 
 vim.g.mapleader = " "
 
--- Open/load nvim init
-nmap("<Leader>u", ":tabedit ~/.config/nvim<CR>")
-nmap("<Leader>U", ":source $MYVIMRC<CR>")
-
 -- Save file
 nmap("<Leader>w", ":w<CR>")
 nmap("<Leader>W", ":w!<CR>")
