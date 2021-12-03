@@ -17,7 +17,7 @@ require("nvim-treesitter.configs").setup(
     },
     highlight = {
       enable = true,
-      disable = {"typescript", "bash"},
+      disable = {"typescript", "bash", "html"},
       custom_captures = {}
     }
   }
