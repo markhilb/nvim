@@ -17,7 +17,8 @@ end
 function M.grep_files(dir)
   print(git_root_or_default(dir))
   vim.fn["fzf#vim#grep"](
-    "ag --nogroup --column --color --ignore-dir={" .. table.concat(ignore_dirs, ",") .. "} -- '^(?=.)'",
+    "ag --skip-vcs-ignores --hidden --nogroup --column --color --ignore-dir={" ..
+      table.concat(ignore_dirs, ",") .. "} -- '^(?=.)'",
     false,
     vim.fn["fzf#vim#with_preview"]({dir = git_root_or_default(dir)})
   )
