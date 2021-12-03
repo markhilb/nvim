@@ -121,7 +121,7 @@ nmap("<Leader>G", "<cmd>lua require('config.fzf').grep_files('.')<CR>")
 nmap("<Leader>ti", "<cmd>lua require('config.fzf').find_files('~/.config/nvim')<CR>")
 nmap("<Leader>tb", ":Buffers<CR>")
 nmap("<Leader>tr", ":History:<CR>")
-nmap("<Leader>ts", "History/<CR>")
+nmap("<Leader>ts", ":History/<CR>")
 
 -- Lsp
 nmap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
