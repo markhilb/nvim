@@ -32,6 +32,7 @@ vmap("'", "s''<ESC>P")
 
 -- Don't overwrite clipboard on visual paste
 vmap("p", '"_dp')
+vmap("P", '"_dP')
 
 -- Search for selected text
 vmap("//", 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>')
