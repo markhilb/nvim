@@ -3,22 +3,18 @@ vim.g.OmniSharp_highlighting = 0
 require("nvim-treesitter.configs").setup(
   {
     ensure_installed = {
-      "bash",
       "c",
       "c_sharp",
       "comment",
-      "css",
       "dockerfile",
-      "html",
       "javascript",
       "json",
       "lua",
-      "python",
-      "scss"
+      "python"
     },
     highlight = {
       enable = true,
-      disable = {"typescript", "bash", "html", "css"},
+      disable = {"typescript", "bash", "html", "css", "scss"},
       custom_captures = {}
     }
   }
