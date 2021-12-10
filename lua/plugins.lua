@@ -43,8 +43,6 @@ return require("packer").startup(
       }
     }
 
-    use "OmniSharp/omnisharp-vim"
-
     use {"neovim/nvim-lspconfig", config = "require('config/lsp')"}
     use {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}
     use {"folke/trouble.nvim", config = "require('config/trouble')"}

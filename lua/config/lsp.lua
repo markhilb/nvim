@@ -9,19 +9,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   }
 )
 
+local config = require("lspconfig")
+
 -- npm i -g pyright
-require("lspconfig").pyright.setup({})
+config.pyright.setup({})
 
 -- npm i -g typescript typescript-language-server
-require("lspconfig").tsserver.setup({})
+config.tsserver.setup({})
 
 -- npm i -g vscode-langservers-extracted
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-require("lspconfig").cssls.setup({capabilities = capabilities})
-require("lspconfig").html.setup({capabilities = capabilities})
-require("lspconfig").eslint.setup({})
-require("lspconfig").jsonls.setup(
+config.cssls.setup({capabilities = capabilities})
+config.html.setup({capabilities = capabilities})
+config.eslint.setup({})
+config.jsonls.setup(
   {
     capabilities = capabilities,
     commands = {
@@ -35,4 +37,11 @@ require("lspconfig").jsonls.setup(
 )
 
 -- sudo pacman -S clang (https://clangd.llvm.org/installation.html)
-require("lspconfig").clangd.setup({})
+config.clangd.setup({})
+
+-- curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64.tar.gz > ~/omnisharp.tar.gz && tar xzf ~/omnisharp.tar.gz -C ~/.omnisharp/ && rm ~/omnisharp.tar.gz
+config.omnisharp.setup(
+  {
+    cmd = {"/home/markus/.omnisharp/run", "--languageserver", "--hostPID", tostring(pid)}
+  }
+)

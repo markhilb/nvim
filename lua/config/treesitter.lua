@@ -1,5 +1,3 @@
-vim.g.OmniSharp_highlighting = 0
-
 require("nvim-treesitter.configs").setup(
   {
     ensure_installed = {

@@ -140,44 +140,5 @@ nmap("<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 nmap("gf", "<cmd>TroubleToggle lsp_references<CR>")
 nmap("<Leader>o", "<cmd>TroubleToggle workspace_diagnostics<CR>")
 
--- Omnisharp
-vim.cmd(
-  [[
-    augroup omnisharp_commands
-      autocmd!
-
-      autocmd CursorHold *.cs OmniSharpTypeLookup
-
-      autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
-      autocmd FileType cs nmap <silent> <buffer> gp <Plug>(omnisharp_preview_definition)
-      autocmd FileType cs nmap <silent> <buffer> gf <Plug>(omnisharp_find_usages)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>opi <Plug>(omnisharp_preview_implementations)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>ot <Plug>(omnisharp_type_lookup)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>od <Plug>(omnisharp_documentation)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>ofs <Plug>(omnisharp_find_symbol)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>ou <Plug>(omnisharp_fix_usings)
-      autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
-      autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>oc <Plug>(omnisharp_global_code_check)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>a :OmniSharpCodeFormat\| w<CR>
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
-      autocmd FileType cs xmap <silent> <buffer> <Leader>oa <Plug>(omnisharp_code_actions)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>o. <Plug>(omnisharp_code_action_repeat)
-      autocmd FileType cs xmap <silent> <buffer> <Leader>o. <Plug>(omnisharp_code_action_repeat)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>or <Plug>(omnisharp_rename)
-
-      autocmd FileType cs nmap <silent> <buffer> <Leader>osr <Plug>(omnisharp_restart_server)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>oss <Plug>(omnisharp_start_server)
-      autocmd FileType cs nmap <silent> <buffer> <Leader>osp <Plug>(omnisharp_stop_server)
-    augroup END
-  ]]
-)
-
 -- Treesitter
 nmap("<Leader>h", ":TSHighlightCapturesUnderCursor<CR>", {silent = true})
