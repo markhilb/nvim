@@ -22,16 +22,6 @@ require("formatter").setup(
             stdin = true
           }
         end
-      },
-      cs = {
-        function()
-          return {
-            exe = "dotnet-format",
-            args = {"--include", "%", "--verbosity", "quiet"},
-            ignore_exitcode = true,
-            stdin = false
-          }
-        end
       }
     }
   }
