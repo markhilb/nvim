@@ -138,7 +138,7 @@ nmap("<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 
 -- Trouble
 nmap("gf", "<cmd>TroubleToggle lsp_references<CR>")
-nmap("<Leader>o", "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>")
+nmap("<Leader>o", "<cmd>TroubleToggle workspace_diagnostics<CR>")
 
 -- Omnisharp
 vim.cmd(
