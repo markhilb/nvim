@@ -133,12 +133,11 @@ nmap("gN", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
 nmap("gr", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nmap("gk", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nmap("gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-nmap("<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+nmap("gf", ":References<CR>")
 nmap("<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-
--- Trouble
-nmap("gf", "<cmd>TroubleToggle lsp_references<CR>")
-nmap("<Leader>o", "<cmd>TroubleToggle workspace_diagnostics<CR>")
+nmap("<Leader>ca", ":CodeActions<CR>")
+nmap("<Leader>o", ":Diagnostics<CR>")
+nmap("<Leader>O", ":DiagnosticsAll<CR>")
 
 -- Treesitter
 nmap("<Leader>h", ":TSHighlightCapturesUnderCursor<CR>", {silent = true})

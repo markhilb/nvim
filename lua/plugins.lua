@@ -43,8 +43,11 @@ return require("packer").startup(
       }
     }
 
-    use {"neovim/nvim-lspconfig", config = "require('config/lsp')"}
-    use {"folke/trouble.nvim", config = "require('config/trouble')"}
+    use {
+      "neovim/nvim-lspconfig",
+      config = "require('config/lsp')",
+      requires = {{"gfanto/fzf-lsp.nvim"}}
+    }
     use {
       "hrsh7th/nvim-cmp",
       config = "require('config/cmp')",
