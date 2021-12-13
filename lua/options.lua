@@ -19,7 +19,7 @@ opt.shiftwidth = 4
 -- Swap/undo
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = os.getenv("HOME").."/.vim/undo"
+opt.undodir = os.getenv("HOME").."/.cache/nvim/undo"
 opt.undolevels = 1000
 opt.undoreload = 10000
 
