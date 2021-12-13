@@ -140,4 +140,4 @@ nmap("<Leader>o", ":Diagnostics<CR>")
 nmap("<Leader>O", ":DiagnosticsAll<CR>")
 
 -- Treesitter
-nmap("<Leader>h", ":TSHighlightCapturesUnderCursor<CR>", {silent = true})
+nmap("<Leader>H", ":TSHighlightCapturesUnderCursor<CR>", {silent = true})
