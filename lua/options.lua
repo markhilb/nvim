@@ -9,6 +9,7 @@ opt.relativenumber = true
 opt.cursorline = true
 opt.scrolloff = 8
 opt.termguicolors = true
+opt.lazyredraw = true
 
 -- Indentation
 opt.expandtab = true
