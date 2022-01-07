@@ -13,6 +13,7 @@ require("formatter").setup(
       typescript = {prettier},
       html = {prettier},
       css = {prettier},
+      scss = {prettier},
       json = {prettier},
       lua = {
         function()
