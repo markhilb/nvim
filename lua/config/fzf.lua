@@ -3,7 +3,7 @@ local git_root_or_default = require("utils").git_root_or_default
 vim.env.FZF_DEFAULT_OPTS =
   "--bind ctrl-a:select-all,ctrl-d:deselect-all,up:preview-half-page-up,down:preview-half-page-down"
 
-local ignore_dirs = {"node_modules", "target", ".git", "bin", "obj", "out-tsc"}
+local ignore_dirs = {"node_modules", "target", ".git", "bin", "obj", "out-tsc", ".angular"}
 
 vim.env.FZF_DEFAULT_COMMAND =
   "find . -type d \\( -name " .. table.concat(ignore_dirs, " -o -name ") .. " \\) -prune -o -print"
