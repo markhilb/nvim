@@ -40,9 +40,9 @@ return require("packer").startup(
 
     use {
       "neovim/nvim-lspconfig",
-      config = "require('config/lsp')",
-      requires = {{"ojroques/nvim-lspfuzzy", config = "require('lspfuzzy').setup({})"}}
+      config = "require('config/lsp')"
     }
+
     use {
       "hrsh7th/nvim-cmp",
       config = "require('config/cmp')",
