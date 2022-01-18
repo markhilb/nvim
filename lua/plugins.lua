@@ -34,19 +34,14 @@ return require("packer").startup(
 
     use {"windwp/nvim-autopairs", config = "require('nvim-autopairs').setup({})"}
 
-    use {
-      "junegunn/fzf",
-      config = "require('config/fzf')",
-      requires = {
-        {"junegunn/fzf.vim"},
-        {"nvim-lua/plenary.nvim"}
-      }
-    }
+    use {"nvim-lua/plenary.nvim"}
+
+    use {"ibhagwan/fzf-lua", config = "require('config/fzf')"}
 
     use {
       "neovim/nvim-lspconfig",
       config = "require('config/lsp')",
-      requires = {{"gfanto/fzf-lsp.nvim"}}
+      requires = {{"ojroques/nvim-lspfuzzy", config = "require('lspfuzzy').setup({})"}}
     }
     use {
       "hrsh7th/nvim-cmp",

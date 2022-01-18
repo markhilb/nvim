@@ -35,16 +35,8 @@ function M.imap(left, right, opts)
   map("i", left, right, opts)
 end
 
-function M.git_root_or_default(dir)
-  if dir ~= nil then
-    return dir
-  end
-
-  local git_root, ret = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
-
-  if ret ~= 0 then
-    return dir
-  end
+function M.git_root()
+  local git_root, _ = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
   return git_root[1]
 end
 
