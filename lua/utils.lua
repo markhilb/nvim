@@ -37,7 +37,12 @@ end
 
 function M.git_root()
   local git_root, _ = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
-  return git_root[1]
+
+  if git_root[1] == nil then
+    return ""
+  else
+    return git_root[1]
+  end
 end
 
 return M
