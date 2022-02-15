@@ -4,33 +4,26 @@ evaluate() {
 
 COMMANDS=()
 
+install() {
+    printf "Do you want to install $1? [Y/n] "
+    read ANSWER
+    if evaluate $ANSWER; then
+        for i in $(seq 2 $#); do
+            COMMANDS+=("${!i}")
+        done
+    fi
+}
 
-printf "Do you want to install python lsp? [Y/n] "
-read ANSWER
-if evaluate $ANSWER; then
-    COMMANDS+=("sudo npm i -g pyright")
-fi
 
-printf "\nDo you want to install typescript lsp? [Y/n] "
-read ANSWER
-if evaluate $ANSWER; then
-    COMMANDS+=("sudo npm i -g typescript typescript-language-server vscode-langservers-extracted")
-fi
+install "python lsp" "sudo npm i -g pyright"
 
-printf "\nDo you want to install C/C++ lsp? [Y/n] "
-read ANSWER
-if evaluate $ANSWER; then
-    COMMANDS+=("sudo pacman -S --noconfirm clang")
-fi
+install "typescript lsp" "sudo npm i -g typescript typescript-language-server vscode-langservers-extracted"
 
-printf "\nDo you want to install .NET lsp? [Y/n] "
-read ANSWER
-if evaluate $ANSWER; then
-    COMMANDS+=("[ ! -d ~/.omnisharp ] && mkdir .omnisharp/")
-    COMMANDS+=("curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64.tar.gz > ~/omnisharp.tar.gz && tar xzf ~/omnisharp.tar.gz -C ~/.omnisharp/ && rm ~/omnisharp.tar.gz")
-fi
+install "C/C++ lsp" "sudo pacman -S --noconfirm clang"
 
-for cmd in "${COMMANDS[@]}"
-do
+install ".NET lsp" "[ ! -d ~/.omnisharp ] && mkdir .omnisharp/" "curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64.tar.gz > ~/omnisharp.tar.gz && tar xzf ~/omnisharp.tar.gz -C ~/.omnisharp/ && rm ~/omnisharp.tar.gz"
+
+
+for cmd in "${COMMANDS[@]}"; do
     eval $cmd
 done
