@@ -23,6 +23,15 @@ require("formatter").setup(
             stdin = true
           }
         end
+      },
+      rust = {
+        function()
+          return {
+            exe = "rustfmt",
+            args = {"--emit=stdout"},
+            stdin = true
+          }
+        end
       }
     }
   }
