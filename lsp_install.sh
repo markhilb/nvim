@@ -15,9 +15,9 @@ install() {
 }
 
 
-install "python lsp" "sudo npm i -g pyright"
+install "python lsp" "npm i -g pyright"
 
-install "typescript lsp" "sudo npm i -g typescript typescript-language-server vscode-langservers-extracted"
+install "typescript lsp" "npm i -g typescript typescript-language-server vscode-langservers-extracted"
 
 install "C/C++ lsp" "sudo pacman -S --noconfirm clang"
 
