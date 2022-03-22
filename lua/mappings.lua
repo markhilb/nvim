@@ -102,7 +102,7 @@ nmap("<Leader>y", "ggyG")
 nmap("<Leader>s", ":PackerSync<CR>")
 
 -- Formatter
-nmap("<Leader>a", ":w | FormatWrite<CR>")
+nmap("<Leader>a", "<cmd>lua require('config/formatter').format()<CR>")
 
 -- Whitespace
 nmap("<Leader>f", ":mark q | FixWhitespace<CR>'q:w<CR>")

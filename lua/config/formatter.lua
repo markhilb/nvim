@@ -36,3 +36,18 @@ require("formatter").setup(
     }
   }
 )
+
+local M = {}
+
+function M.format()
+  if vim.bo.filetype == "" then
+    vim.cmd("w")
+  elseif require("formatter.config")["values"]["filetype"][vim.bo.filetype] == nil then
+    vim.cmd("lua vim.lsp.buf.formatting_sync()")
+    vim.cmd("w")
+  else
+    vim.cmd("w | FormatWrite")
+  end
+end
+
+return M
