@@ -58,7 +58,7 @@ return require("packer").startup(
         {"hrsh7th/cmp-buffer"},
         {"hrsh7th/cmp-path"},
         {"hrsh7th/cmp-calc"},
-        {"L3MON4D3/LuaSnip", config = "require('config/luasnip')"}
+        {"L3MON4D3/LuaSnip"}
       }
     }
   end
