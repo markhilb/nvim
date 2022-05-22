@@ -41,7 +41,7 @@ config.clangd.setup({})
 -- curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64.tar.gz > ~/omnisharp.tar.gz && tar xzf ~/omnisharp.tar.gz -C ~/.omnisharp/ && rm ~/omnisharp.tar.gz
 config.omnisharp.setup(
   {
-    cmd = {"/home/markus/.omnisharp/run", "--languageserver", "--hostPID", tostring(pid)}
+    cmd = {"/home/markus/.omnisharp/OmniSharp", "--languageserver", "--hostPID", tostring(pid)}
   }
 )
 
