@@ -1,7 +1,7 @@
 local ignore_dirs = {"node_modules", "target", ".git", "bin", "obj", "out-tsc", ".angular", "db"}
 
 vim.env.FZF_DEFAULT_OPTS =
-  "--bind ctrl-a:select-all,ctrl-d:deselect-all,up:preview-half-page-up,down:preview-half-page-down"
+  "--bind ctrl-a:select-all,ctrl-A:deselect-all,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 
 vim.env.FZF_DEFAULT_COMMAND =
   "find . -type d \\( -name " .. table.concat(ignore_dirs, " -o -name ") .. " \\) -prune -o -print"
