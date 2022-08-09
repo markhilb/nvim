@@ -50,6 +50,8 @@ return require("packer").startup(
       config = "require('config/lsp')"
     }
 
+    use {"ray-x/lsp_signature.nvim", config = "require('lsp_signature').setup({})"}
+
     use {
       "hrsh7th/nvim-cmp",
       config = "require('config/cmp')",
