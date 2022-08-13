@@ -16,6 +16,18 @@ config.pyright.setup({})
 -- npm i -g typescript typescript-language-server
 config.tsserver.setup({})
 
+-- npm install -g @angular/language-server
+local angular_path = "/home/markus/.nvm/versions/node/v16.15.1/lib/node_modules/@angular/language-server/"
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", angular_path, "--ngProbeLocations", angular_path}
+config.angularls.setup(
+  {
+    cmd = cmd,
+    on_new_config = function(new_config, new_root_dir)
+      new_config.cmd = cmd
+    end
+  }
+)
+
 -- npm i -g vscode-langservers-extracted
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
