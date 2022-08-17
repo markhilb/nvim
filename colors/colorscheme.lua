@@ -140,7 +140,7 @@ highlight(
     Label = {guifg = c.purple2, guibg = "NONE"},
     Special = {guifg = c.purple3, guibg = "NONE"},
     SpecialChar = {guifg = c.purple4, guibg = "NONE"},
-    Boolean = {guifg = c.yellow, guibg = "NONE"},
+    Boolean = {guifg = c.yellow2, guibg = "NONE"},
     String = {guifg = c.green, guibg = "NONE"},
     Character = {guifg = c.yellow2, guibg = "NONE"},
     Number = {guifg = c.purple4, guibg = "NONE"},
