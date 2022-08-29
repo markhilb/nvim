@@ -9,7 +9,8 @@ cmp.setup(
       {name = "buffer"},
       {name = "path"},
       {name = "calc"},
-      {name = "crates"}
+      {name = "crates"},
+      {name = "nvim_lsp_signature_help"}
     },
     snippet = {
       expand = function(args)
