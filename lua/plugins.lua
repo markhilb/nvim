@@ -50,6 +50,8 @@ return require("packer").startup(
       config = "require('config/lsp')"
     }
 
+    use {"j-hui/fidget.nvim", config = "require('fidget').setup({})"}
+
     use {
       "hrsh7th/nvim-cmp",
       config = "require('config/cmp')",
