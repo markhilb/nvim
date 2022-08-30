@@ -11,7 +11,7 @@ return require("packer").startup(
     use "wbthomason/packer.nvim"
 
     use "ap/vim-css-color"
-    use "alvan/vim-closetag"
+    use "windwp/nvim-ts-autotag"
 
     use "wellle/targets.vim"
     use "bronson/vim-trailing-whitespace"

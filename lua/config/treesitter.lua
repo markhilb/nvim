@@ -6,14 +6,21 @@ require("nvim-treesitter.configs").setup(
       "comment",
       "dockerfile",
       "javascript",
+      "typescript",
+      "tsx",
+      "html",
+      "css",
+      "scss",
       "json",
+      "markdown",
       "lua",
-      "python"
+      "python",
+      "rust"
     },
     highlight = {
       enable = true,
-      disable = {"typescript", "bash", "html", "css", "scss"},
-      custom_captures = {}
-    }
+      disable = {"typescript", "tsx", "bash", "html", "css", "scss", "rust"}
+    },
+    autotag = {enable = true}
   }
 )
