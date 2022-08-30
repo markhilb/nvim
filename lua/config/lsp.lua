@@ -47,6 +47,9 @@ config.jsonls.setup(
   }
 )
 
+-- sudo pacman -S --noconfirm lua-language-server
+config.sumneko_lua.setup({})
+
 -- sudo pacman -S clang (https://clangd.llvm.org/installation.html)
 config.clangd.setup({})
 

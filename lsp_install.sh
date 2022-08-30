@@ -21,6 +21,8 @@ install "typescript lsp" "npm i -g typescript typescript-language-server vscode-
 
 install "angular lsp" "npm install -g @angular/language-server"
 
+install "lua lsp" "sudo pacman -S --noconfirm lua-language-server"
+
 install "C/C++ lsp" "sudo pacman -S --noconfirm clang"
 
 install ".NET lsp" "mkdir -p ~/.omnisharp && curl -L https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64-net6.0.tar.gz > ~/omnisharp.tar.gz && tar xzf ~/omnisharp.tar.gz -C ~/.omnisharp/ && rm ~/omnisharp.tar.gz"
