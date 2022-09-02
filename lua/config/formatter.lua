@@ -34,6 +34,15 @@ require("formatter").setup(
             stdin = true
           }
         end
+      },
+      sql = {
+        function()
+          return {
+            exe = "sql-formatter",
+            args = {},
+            stdin = true
+          }
+        end
       }
     }
   }
@@ -41,14 +50,23 @@ require("formatter").setup(
 
 local M = {}
 
-function M.format()
+function M.format(range)
   if vim.bo.filetype == "" then
     vim.cmd("w")
   elseif require("formatter.config")["values"]["filetype"][vim.bo.filetype] == nil then
-    vim.cmd("lua vim.lsp.buf.formatting_sync()")
+    if range then
+      vim.cmd("lua vim.lsp.buf.range_formatting()")
+    else
+      vim.cmd("lua vim.lsp.buf.formatting_sync()")
+    end
+
     vim.cmd("w")
   else
-    vim.cmd("w | FormatWrite")
+    if range then
+      vim.cmd("'<,'>FormatWrite")
+    else
+      vim.cmd("w | FormatWrite")
+    end
   end
 end
 
