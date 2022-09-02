@@ -23,6 +23,26 @@ function get_os_command_output(cmd, cwd)
   return stdout, ret, stderr
 end
 
+function _reverse_find_file(file, dir)
+  local files = get_os_command_output({"ls", "-a1"}, dir)
+  for _, x in pairs(files) do
+    if x == file then
+      return dir .. "/" .. file
+    end
+  end
+
+  if dir == "/" then
+    return nil
+  else
+    local new_dir, _ = string.gsub(dir, "/[^/]+$", "")
+    if new_dir == "" then
+      return _reverse_find_file(file, "/")
+    else
+      return _reverse_find_file(file, new_dir)
+    end
+  end
+end
+
 local M = {}
 
 function M.nmap(left, right, opts)
@@ -58,6 +78,10 @@ function M.dump_table(t)
   else
     return tostring(t)
   end
+end
+
+function M.reverse_find_file(file)
+  return _reverse_find_file(file, vim.loop.cwd())
 end
 
 return M

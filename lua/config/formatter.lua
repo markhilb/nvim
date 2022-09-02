@@ -37,9 +37,10 @@ require("formatter").setup(
       },
       sql = {
         function()
+          local config = require("utils").reverse_find_file(".sql-formatter.json")
           return {
             exe = "sql-formatter",
-            args = {},
+            args = config == nil and {} or {"--config", config},
             stdin = true
           }
         end
@@ -63,7 +64,10 @@ function M.format(range)
     vim.cmd("w")
   else
     if range then
-      vim.cmd("'<,'>FormatWrite")
+      vim.api.nvim_feedkeys("\027", "xt", false)
+      local s = vim.fn.getpos("'<")
+      local e = vim.fn.getpos("'>")
+      vim.cmd(string.format("%d.%d,%d.%d FormatWrite", s[2], s[3], e[2], e[3]))
     else
       vim.cmd("w | FormatWrite")
     end
