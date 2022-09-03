@@ -51,7 +51,7 @@ require("formatter").setup(
 
 local M = {}
 
-function M.format(range)
+function M.format(range, filetype)
   if vim.bo.filetype == "" then
     vim.cmd("w")
   elseif require("formatter.config")["values"]["filetype"][vim.bo.filetype] == nil then
@@ -65,9 +65,15 @@ function M.format(range)
   else
     if range then
       vim.api.nvim_feedkeys("\027", "xt", false)
-      local s = vim.fn.getpos("'<")
-      local e = vim.fn.getpos("'>")
-      vim.cmd(string.format("%d.%d,%d.%d FormatWrite", s[2], s[3], e[2], e[3]))
+
+      if filetype ~= nil then
+        local old = vim.bo.filetype
+        vim.cmd("set filetype=" .. filetype)
+        vim.cmd("'<,'>FormatWrite")
+        vim.cmd("set filetype=" .. old)
+      else
+        vim.cmd("'<,'>FormatWrite")
+      end
     else
       vim.cmd("w | FormatWrite")
     end

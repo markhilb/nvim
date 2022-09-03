@@ -104,6 +104,7 @@ nmap("<Leader>s", ":PackerSync<CR>")
 -- Formatter
 nmap("<Leader>a", "<cmd>lua require('config/formatter').format()<CR>")
 vmap("<Leader>a", "<cmd>lua require('config/formatter').format(true)<CR>")
+vmap("<Leader>s", "<cmd>lua require('config/formatter').format(true, 'sql')<CR>")
 
 -- Whitespace
 nmap("<Leader>f", ":mark q | FixWhitespace<CR>'q:w<CR>")
