@@ -19,8 +19,6 @@ install "python lsp" "npm i -g pyright"
 
 install "typescript lsp" "npm i -g typescript typescript-language-server vscode-langservers-extracted"
 
-install "angular lsp" "npm install -g @angular/language-server"
-
 install "lua lsp" "sudo pacman -S --noconfirm lua-language-server"
 
 install "C/C++ lsp" "sudo pacman -S --noconfirm clang"
