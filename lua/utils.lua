@@ -75,4 +75,10 @@ function M.reverse_find_file(file)
   return _reverse_find_file(file, path_pop(vim.api.nvim_buf_get_name(0)))
 end
 
+function M.get_treesitter_root(language)
+  local parser = vim.treesitter.get_parser(vim.api.nvim_get_current_buf(), language, {})
+  local tree = parser:parse()[1]
+  return tree:root()
+end
+
 return M
