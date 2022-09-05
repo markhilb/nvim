@@ -6,23 +6,6 @@ function map(mode, left, right, opts)
   vim.api.nvim_set_keymap(mode, left, right, options)
 end
 
-function get_os_command_output(cmd, cwd)
-  local command = table.remove(cmd, 1)
-  local stderr = {}
-  local stdout, ret =
-    require("plenary.job"):new(
-    {
-      command = command,
-      args = cmd,
-      cwd = cwd,
-      on_stderr = function(_, data)
-        table.insert(stderr, data)
-      end
-    }
-  ):sync()
-  return stdout, ret, stderr
-end
-
 function path_pop(path)
   local new_path, _ = string.gsub(path, "/[^/]+$", "")
   return new_path == "" and "/" or new_path
@@ -41,6 +24,24 @@ end
 
 local M = {}
 
+function M.get_os_command_output(cmd, cwd)
+  local command = table.remove(cmd, 1)
+  local stderr = {}
+  local stdout, ret =
+    require("plenary.job"):new(
+    {
+      command = command,
+      args = cmd,
+      cwd = cwd,
+      on_stderr = function(_, data)
+        table.insert(stderr, data)
+      end
+    }
+  ):sync()
+  return stdout, ret, stderr
+end
+
+
 function M.nmap(left, right, opts)
   map("n", left, right, opts)
 end
@@ -52,7 +53,7 @@ function M.imap(left, right, opts)
 end
 
 function M.git_root()
-  local git_root, _ = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
+  local git_root, _ = M.get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
   return git_root[1] == nil and "" or git_root[1]
 end
 
@@ -73,6 +74,12 @@ end
 
 function M.reverse_find_file(file)
   return _reverse_find_file(file, path_pop(vim.api.nvim_buf_get_name(0)))
+end
+
+function M.get_treesitter_root(language)
+  local parser = vim.treesitter.get_parser(vim.api.nvim_get_current_buf(), language, {})
+  local tree = parser:parse()[1]
+  return tree:root()
 end
 
 return M
