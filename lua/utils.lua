@@ -23,6 +23,11 @@ function get_os_command_output(cmd, cwd)
   return stdout, ret, stderr
 end
 
+function path_pop(path)
+  local new_path, _ = string.gsub(path, "/[^/]+$", "")
+  return new_path == "" and "/" or new_path
+end
+
 function _reverse_find_file(file, dir)
   local files = get_os_command_output({"ls", "-a1"}, dir)
   for _, x in pairs(files) do
@@ -31,16 +36,7 @@ function _reverse_find_file(file, dir)
     end
   end
 
-  if dir == "/" then
-    return nil
-  else
-    local new_dir, _ = string.gsub(dir, "/[^/]+$", "")
-    if new_dir == "" then
-      return _reverse_find_file(file, "/")
-    else
-      return _reverse_find_file(file, new_dir)
-    end
-  end
+  return dir == "/" and nil or _reverse_find_file(file, path_pop(dir))
 end
 
 local M = {}
@@ -57,12 +53,7 @@ end
 
 function M.git_root()
   local git_root, _ = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
-
-  if git_root[1] == nil then
-    return ""
-  else
-    return git_root[1]
-  end
+  return git_root[1] == nil and "" or git_root[1]
 end
 
 function M.dump_table(t)
@@ -81,7 +72,7 @@ function M.dump_table(t)
 end
 
 function M.reverse_find_file(file)
-  return _reverse_find_file(file, vim.loop.cwd())
+  return _reverse_find_file(file, path_pop(vim.api.nvim_buf_get_name(0)))
 end
 
 return M
