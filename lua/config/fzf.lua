@@ -1,10 +1,9 @@
-local ignore_dirs = {"node_modules", "target", ".git", "bin", "obj", "out-tsc", ".angular", "db"}
+local ignore_dirs = {"node_modules/", "target/", ".git/", "bin/", "obj/", ".angular/", "db/"}
 
 vim.env.FZF_DEFAULT_OPTS =
   "--bind ctrl-a:select-all,ctrl-e:deselect-all,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 
-vim.env.FZF_DEFAULT_COMMAND =
-  "find . -type d \\( -name " .. table.concat(ignore_dirs, " -o -name ") .. " \\) -prune -o -print"
+vim.env.FZF_DEFAULT_COMMAND = "fd -HI -t file -E " .. table.concat(ignore_dirs, " -E ")
 
 local M = {}
 
@@ -22,8 +21,8 @@ function M.grep_files(dir)
   end
 
   vim.fn["fzf#vim#grep"](
-    "ag --skip-vcs-ignores --hidden --nogroup --column --color --ignore-dir={" ..
-      table.concat(ignore_dirs, ",") .. "} -- '^(?=.)'",
+    "rg --no-ignore --hidden --no-heading --column --color=always -g '!" ..
+      table.concat(ignore_dirs, "' -g '!") .. "' ^",
     false,
     vim.fn["fzf#vim#with_preview"]({dir = dir})
   )
