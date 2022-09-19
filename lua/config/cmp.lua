@@ -24,17 +24,8 @@ cmp.setup(
           select = false
         }
       ),
-      ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
-      ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-      ["<C-y>"] = cmp.mapping(
-        cmp.mapping.confirm(
-          {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-          }
-        ),
-        {"i", "c"}
-      ),
+      ["<C-d>"] = cmp.mapping.scroll_docs(4),
+      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
       ["<C-n>"] = cmp.mapping(
         function()
           if not cmp.visible() then
