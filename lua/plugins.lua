@@ -10,7 +10,7 @@ return require("packer").startup(
   function()
     use "wbthomason/packer.nvim"
 
-    use "ap/vim-css-color"
+    use {"norcalli/nvim-colorizer.lua", config = "require('colorizer').setup()"}
     use "windwp/nvim-ts-autotag"
 
     use "wellle/targets.vim"
