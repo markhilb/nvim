@@ -6,7 +6,14 @@ function map(mode, left, right, opts)
   vim.api.nvim_set_keymap(mode, left, right, options)
 end
 
-function get_os_command_output(cmd, cwd)
+function path_pop(path)
+  local new_path, _ = string.gsub(path, "/[^/]+$", "")
+  return new_path == "" and "/" or new_path
+end
+
+local M = {}
+
+function M.get_os_command_output(cmd, cwd)
   local command = table.remove(cmd, 1)
   local stderr = {}
   local stdout, ret =
@@ -23,24 +30,6 @@ function get_os_command_output(cmd, cwd)
   return stdout, ret, stderr
 end
 
-function path_pop(path)
-  local new_path, _ = string.gsub(path, "/[^/]+$", "")
-  return new_path == "" and "/" or new_path
-end
-
-function _reverse_find_file(file, dir)
-  local files = get_os_command_output({"ls", "-a1"}, dir)
-  for _, x in pairs(files) do
-    if x == file then
-      return dir .. "/" .. file
-    end
-  end
-
-  return dir == "/" and nil or _reverse_find_file(file, path_pop(dir))
-end
-
-local M = {}
-
 function M.nmap(left, right, opts)
   map("n", left, right, opts)
 end
@@ -52,7 +41,7 @@ function M.imap(left, right, opts)
 end
 
 function M.git_root()
-  local git_root, _ = get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
+  local git_root, _ = M.get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
   return git_root[1] == nil and "" or git_root[1]
 end
 
@@ -69,6 +58,17 @@ function M.dump_table(t)
   else
     return tostring(t)
   end
+end
+
+function _reverse_find_file(file, dir)
+  local files = M.get_os_command_output({"ls", "-a1"}, dir)
+  for _, x in pairs(files) do
+    if x == file then
+      return dir .. "/" .. file
+    end
+  end
+
+  return dir == "/" and nil or _reverse_find_file(file, path_pop(dir))
 end
 
 function M.reverse_find_file(file)
