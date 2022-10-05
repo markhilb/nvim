@@ -106,7 +106,7 @@ highlight(
     Delimiter = {fg = c.fg},
     Error = {fg = c.red},
     Exception = {fg = c.red},
-    Float = {fg = c.middle_purple},
+    Float = {fg = c.light_purple},
     Function = {fg = c.dark_pink},
     Identifier = {fg = c.orange},
     Ignore = {fg = c.grey},
