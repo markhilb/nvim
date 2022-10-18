@@ -139,7 +139,7 @@ highlight(
     ["@constant.builtin"] = {fg = c.light_pink},
     ["@custom.type"] = {fg = c.middle_purple},
     ["@field"] = {fg = c.fg},
-    ["@func.builtin"] = {link = "Function"},
+    ["@function.builtin"] = {link = "Function"},
     ["@func.macro"] = {link = "Macro"},
     ["@keyword.return"] = {fg = c.blue},
     ["@namespace"] = {fg = c.purple_red},
