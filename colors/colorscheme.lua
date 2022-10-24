@@ -153,6 +153,7 @@ highlight(
     ["@tag.attribute"] = {fg = c.dark_purple},
     ["@tag.delimiter"] = {fg = c.light_pink},
     ["@type.builtin"] = {fg = c.blue},
+    ["@variable"] = {fg = c.fg},
     ["@variable.builtin"] = {fg = c.light_pink},
     --
     ---------- LANGUGE SPECIFIC ----------

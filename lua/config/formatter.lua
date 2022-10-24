@@ -63,6 +63,16 @@ local rust_sql =
       (raw_string_literal) @target
     )
   )
+
+  (call_expression
+    (field_expression
+        field: (field_identifier) @_field (#any-of? @_field "query" "execute")
+    )
+
+    (arguments
+        (raw_string_literal) @target
+    )
+  )
   ]]
 )
 
