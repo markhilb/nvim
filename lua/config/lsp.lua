@@ -64,22 +64,22 @@ config.omnisharp.setup(
 )
 
 -- curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer && chmod +x ~/.local/bin/rust-analyzer
--- config.rust_analyzer.setup(
---   {
---     settings = {
---       ["rust-analyzer"] = {
---         checkOnSave = {
---           allFeatures = true,
---           overrideCommand = {
---             "cargo",
---             "clippy",
---             "--workspace",
---             "--message-format=json",
---             "--all-targets",
---             "--all-features"
---           }
---         }
---       }
---     }
---   }
--- )
+config.rust_analyzer.setup(
+  {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          allFeatures = true,
+          overrideCommand = {
+            "cargo",
+            "clippy",
+            "--workspace",
+            "--message-format=json",
+            "--all-targets",
+            "--all-features"
+          }
+        }
+      }
+    }
+  }
+)
