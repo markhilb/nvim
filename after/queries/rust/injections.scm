@@ -1,9 +1,7 @@
 ; extends
 
 (macro_invocation
-    (scoped_identifier
-        path: (identifier) @_path (#not-eq? @_path "sqlx")
-        name: (identifier) @_name (#not-eq? @_name "query"))
+    (identifier) @_path (#not-eq? @_path "sqlx")
     (token_tree) @rust
 )
 
