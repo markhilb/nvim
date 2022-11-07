@@ -68,16 +68,14 @@ config.rust_analyzer.setup(
   {
     settings = {
       ["rust-analyzer"] = {
-        checkOnSave = {
+        cargo = {
           allFeatures = true,
-          overrideCommand = {
-            "cargo",
-            "clippy",
-            "--workspace",
-            "--message-format=json",
-            "--all-targets",
-            "--all-features"
-          }
+          allTargets = true
+        },
+        checkOnSave = {
+          command = "clippy",
+          allFeatures = true,
+          allTargets = true
         }
       }
     }
