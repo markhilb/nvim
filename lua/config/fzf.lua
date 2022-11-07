@@ -1,7 +1,11 @@
 local ignore_dirs = {"node_modules/", "target/", ".git/", "bin/", "obj/", ".angular/", "db/"}
 
+print(vim.env.FZF_DEFAULT_OPTS)
 vim.env.FZF_DEFAULT_OPTS =
-  "--bind ctrl-a:select-all,ctrl-e:deselect-all,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+  [[
+    --bind ctrl-a:select-all,ctrl-e:deselect-all,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
+    --color fg:#e0e0e0,bg:#1c1c1c,hl:#ff0000
+]]
 
 vim.env.FZF_DEFAULT_COMMAND = "fd -HI -t file -E " .. table.concat(ignore_dirs, " -E ")
 

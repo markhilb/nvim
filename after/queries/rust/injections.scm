@@ -15,7 +15,6 @@
         (#offset! @sql 0 3 0 -2)
 )
 
-
 (call_expression
     (field_expression
         field: (field_identifier) @_field (#any-of? @_field "query" "execute")
