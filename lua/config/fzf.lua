@@ -1,6 +1,5 @@
 local ignore_dirs = {"node_modules/", "target/", ".git/", "bin/", "obj/", ".angular/", "db/"}
 
-print(vim.env.FZF_DEFAULT_OPTS)
 vim.env.FZF_DEFAULT_OPTS =
   [[
     --bind ctrl-a:select-all,ctrl-e:deselect-all,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
