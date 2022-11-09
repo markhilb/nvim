@@ -85,13 +85,9 @@ function sql_format(sql)
     cmd = cmd .. " -c " .. config
   end
 
-  local handle = io.popen(cmd)
-  if handle == nil then
-    return nil
-  end
-
-  local formatted_string = handle:read("*a")
-  handle:close()
+  -- TODO: For some reason `formatted_string` does not include the
+  -- newlines that should be between different sql queries.
+  local formatted_string = vim.fn.system(cmd)
 
   local res = {}
   for s in formatted_string:gmatch("[^\r\n]+") do
