@@ -1,7 +1,12 @@
 ; extends
 
 (macro_invocation
-    (identifier) @_path (#not-eq? @_path "sqlx")
+    (scoped_identifier) @_path (#not-eq? @_path "sqlx")
+    (token_tree) @rust
+)
+
+(macro_invocation
+    (identifier)
     (token_tree) @rust
 )
 
@@ -31,7 +36,7 @@
 ; Default values from ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/rust/injections.scm
 ;
 
-; Replaced with `macro_definition` at top of file
+; Replaced with the two `macro_definition`'s at top of file
 ; (macro_invocation
 ;   (token_tree) @rust)
 
