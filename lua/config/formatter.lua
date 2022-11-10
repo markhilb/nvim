@@ -85,16 +85,37 @@ function sql_format(sql)
     cmd = cmd .. " -c " .. config
   end
 
-  -- TODO: For some reason `formatted_string` does not include the
-  -- newlines that should be between different sql queries.
-  local formatted_string = vim.fn.system(cmd)
+  local formatted_string = {}
+  local job =
+    vim.fn.jobstart(
+    cmd,
+    {
+      on_stdout = function(_, d, _)
+        -- For some reason this function gets called twice,
+        -- once with the actual output from `cmd` and
+        -- another time with `{ "" }`.
+        -- This removes the second output.
+        if #d == 1 and d[1] == "" then
+          return
+        end
 
-  local res = {}
-  for s in formatted_string:gmatch("[^\r\n]+") do
-    table.insert(res, s)
+        for _, s in pairs(d) do
+          table.insert(formatted_string, s)
+        end
+      end
+    }
+  )
+  vim.fn.jobwait({job})
+
+  -- Remove trailing newlines from `formatted_string`
+  for i = #formatted_string, 1, -1 do
+    if formatted_string[i] ~= "" then
+      break
+    end
+    table.remove(formatted_string, i)
   end
 
-  return res
+  return formatted_string
 end
 
 local C = {
