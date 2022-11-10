@@ -3,34 +3,42 @@
 (macro_invocation
     (scoped_identifier
         path: (identifier) @_path (#not-eq? @_path "sqlx")
-        name: (identifier) @_name (#not-match? @_name "query"))
+        name: (identifier) @_name (#not-match? @_name "query")
+    )
     (token_tree) @rust
 )
 
 (macro_invocation
-    (identifier)
-    (token_tree) @rust
+    (token_tree
+      (identifier) @rust
+    )
+)
+
+(macro_invocation
+    (token_tree
+      (token_tree) @rust
+    )
 )
 
 (macro_invocation
     (scoped_identifier
         path: (identifier) @_path (#eq? @_path "sqlx")
-        name: (identifier) @_name (#match? @_name "query"))
-
+        name: (identifier) @_name (#match? @_name "query")
+    )
     (token_tree
-        (raw_string_literal) @sql)
-        (#offset! @sql 0 3 0 -2)
+        (raw_string_literal) @sql
+    )
+    (#offset! @sql 0 3 0 -2)
 )
 
 (call_expression
     (field_expression
         field: (field_identifier) @_field (#any-of? @_field "query" "execute")
     )
-
     (arguments
         (raw_string_literal) @sql
     )
-        (#offset! @sql 0 3 0 -2)
+    (#offset! @sql 0 3 0 -2)
 )
 
 
@@ -38,7 +46,7 @@
 ; Default values from ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/rust/injections.scm
 ;
 
-; Replaced with the two `macro_definition`'s at top of file
+; Replaced with the three `macro_invocation`'s at top of file
 ; (macro_invocation
 ;   (token_tree) @rust)
 
