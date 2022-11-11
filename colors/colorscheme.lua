@@ -147,7 +147,7 @@ highlight(
     ["@parameter"] = {fg = c.fg},
     ["@parameter.reference"] = {link = "@parameter"},
     ["@property"] = {fg = c.dark_purple},
-    ["@punct.special"] = {fg = c.red},
+    ["@punctuation.special"] = {fg = c.red},
     ["@string.escape"] = {link = "String"},
     ["@tag"] = {link = "Tag"},
     ["@tag.attribute"] = {fg = c.dark_purple},
@@ -208,6 +208,16 @@ highlight(
     CmpItemKindTypeParameter = {link = "@type"},
     CmpItemKindUnit = {fg = c.middle_purple},
     CmpItemKindValue = {fg = c.middle_purple},
-    CmpItemKindVariable = {link = "@variable"}
+    CmpItemKindVariable = {link = "@variable"},
+    --
+    ---------- MARKDOWN ----------
+    ["@text.h1"] = {fg = c.red, bold = true},
+    ["@text.h2"] = {fg = c.orange, bold = true},
+    ["@text.h3"] = {fg = c.dark_yellow, bold = true},
+    ["@text.h4"] = {fg = c.green, bold = true},
+    ["@text.h5"] = {fg = c.blue, bold = true},
+    ["@text.h6"] = {fg = c.purple4, bold = true},
+    ["@text.uri"] = {fg = c.blue, underline = true},
+    ["@text.reference"] = {fg = c.red}
   }
 )
