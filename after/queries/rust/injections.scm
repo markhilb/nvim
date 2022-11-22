@@ -9,6 +9,11 @@
 )
 
 (macro_invocation
+    macro: (identifier) @_macro (#not-any-of? @_macro "fetch_optional" "fetch_all" "insert" "execute")
+    (token_tree) @rust
+)
+
+(macro_invocation
     (token_tree
       (identifier) @rust
     )
@@ -25,6 +30,14 @@
         path: (identifier) @_path (#eq? @_path "sqlx")
         name: (identifier) @_name (#match? @_name "query")
     )
+    (token_tree
+        (raw_string_literal) @sql
+    )
+    (#offset! @sql 0 3 0 -2)
+)
+
+(macro_invocation
+    macro: (identifier) @_macro (#any-of? @_macro "fetch_optional" "fetch_all" "insert" "execute")
     (token_tree
         (raw_string_literal) @sql
     )

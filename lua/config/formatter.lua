@@ -58,7 +58,6 @@ local rust_sql =
       path: (identifier) @path (#eq? @path "sqlx")
       name: (identifier) @name (#match? @name "query")
     )
-
     (token_tree
       (raw_string_literal) @target
     )
@@ -68,9 +67,15 @@ local rust_sql =
     (field_expression
         field: (field_identifier) @_field (#any-of? @_field "query" "execute")
     )
-
     (arguments
         (raw_string_literal) @target
+    )
+  )
+
+  (macro_invocation
+    macro: (identifier) @_macro (#any-of? @_macro "fetch_optional" "fetch_all" "insert" "execute")
+    (token_tree
+      (raw_string_literal) @target
     )
   )
   ]]
