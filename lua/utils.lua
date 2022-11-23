@@ -14,20 +14,21 @@ end
 local M = {}
 
 function M.get_os_command_output(cmd, cwd)
-  local command = table.remove(cmd, 1)
-  local stderr = {}
-  local stdout, ret =
-    require("plenary.job"):new(
+  local result = {}
+  local job =
+    vim.fn.jobstart(
+    cmd,
     {
-      command = command,
-      args = cmd,
       cwd = cwd,
-      on_stderr = function(_, data)
-        table.insert(stderr, data)
+      stdout_buffered = true,
+      on_stdout = function(_, output, _)
+        result = output
       end
     }
-  ):sync()
-  return stdout, ret, stderr
+  )
+  vim.fn.jobwait({job})
+
+  return result
 end
 
 function M.nmap(left, right, opts)
@@ -41,8 +42,8 @@ function M.imap(left, right, opts)
 end
 
 function M.git_root()
-  local git_root, _ = M.get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())
-  return git_root[1] == nil and "" or git_root[1]
+  local git_root = M.get_os_command_output({"git", "rev-parse", "--show-toplevel"}, vim.loop.cwd())[1]
+  return git_root == nil and "" or git_root
 end
 
 function M.dump_table(t)

@@ -17,8 +17,8 @@ config.pyright.setup({})
 config.tsserver.setup({})
 
 -- npm i -g @angular/language-server @angular/language-service
-local node_path, _ = require("utils").get_os_command_output({"which", "node"})
-local angular_path = string.gsub(node_path[1], "bin/node", "lib/node_modules")
+local node_path = require("utils").get_os_command_output({"which", "node"})[1]
+local angular_path = string.gsub(node_path, "bin/node", "lib/node_modules")
 local cmd = {"ngserver", "--stdio", "--tsProbeLocations", angular_path, "--ngProbeLocations", angular_path}
 
 config.angularls.setup(

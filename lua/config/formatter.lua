@@ -90,19 +90,7 @@ function sql_format(sql)
     cmd = cmd .. " -c " .. config
   end
 
-  local formatted_string = {}
-  local job =
-    vim.fn.jobstart(
-    cmd,
-    {
-      on_stdout = function(_, d, _)
-        for _, s in pairs(d) do
-          table.insert(formatted_string, s)
-        end
-      end
-    }
-  )
-  vim.fn.jobwait({job})
+  local formatted_string = require("utils").get_os_command_output(cmd)
 
   -- Remove trailing newlines from `formatted_string`
   for i = #formatted_string, 1, -1 do
