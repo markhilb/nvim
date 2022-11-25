@@ -35,13 +35,6 @@ return require("packer").startup(
     use {"windwp/nvim-autopairs", config = "require('nvim-autopairs').setup({})"}
 
     use {"ibhagwan/fzf-lua", config = "require('config/fzf-lua')"}
-    use {
-      "junegunn/fzf",
-      config = "require('config/fzf')",
-      requires = {
-        {"junegunn/fzf.vim"}
-      }
-    }
 
     use {
       "neovim/nvim-lspconfig",
