@@ -29,6 +29,10 @@ install ".NET lsp" "mkdir -p ~/.omnisharp && curl -L https://github.com/OmniShar
 
 install "Rust lsp" "mkdir -p ~/.local/bin && curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer && chmod +x ~/.local/bin/rust-analyzer"
 
+install "Docker lsp" "npm install -g dockerfile-language-server-nodejs"
+
+install "Yaml lsp" "npm install -g yaml-language-server"
+
 for cmd in "${COMMANDS[@]}"; do
     eval $cmd
 done

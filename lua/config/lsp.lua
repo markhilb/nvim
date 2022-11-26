@@ -81,3 +81,9 @@ config.rust_analyzer.setup(
     }
   }
 )
+
+-- npm install -g dockerfile-language-server-nodejs
+config.dockerls.setup({})
+
+-- npm install -g yaml-language-server
+config.yamlls.setup({})
