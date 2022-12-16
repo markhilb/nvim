@@ -157,6 +157,7 @@ highlight(
     ["@type.qualifier"] = {link = "@keyword"},
     ["@variable"] = {fg = c.fg},
     ["@variable.builtin"] = {fg = c.light_pink},
+    ["@text.todo"] = {fg = c.dark_yellow, bold = true},
     --
     ---------- LANGUGE SPECIFIC ----------
     typescriptParenExp = {link = "@punctBracket"},
