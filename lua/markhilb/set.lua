@@ -19,3 +19,5 @@ vim.opt.undodir = os.getenv('HOME') .. '/.cache/nvim/undo'
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+vim.g.netrw_keepdir = 0
