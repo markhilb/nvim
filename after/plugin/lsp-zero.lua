@@ -5,6 +5,7 @@ lsp.ensure_installed({
     'tsserver',
     'eslint',
     'angularls',
+    'cssls',
     'sumneko_lua',
     'rust_analyzer',
     'taplo',
