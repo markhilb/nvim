@@ -33,6 +33,15 @@ lsp.configure('rust_analyzer', {
     },
 })
 
+lsp.configure('jsonls', {
+    settings = {
+        json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+        },
+    },
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 lsp.setup_nvim_cmp({
