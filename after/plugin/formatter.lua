@@ -38,9 +38,7 @@ local filetype = {
 
 require('formatter').setup({ filetype = filetype })
 
-local M = {}
-
-function M.format()
+local function format()
     if vim.bo.filetype == '' then
         vim.cmd('w')
     elseif filetype[vim.bo.filetype] == nil then
@@ -50,6 +48,4 @@ function M.format()
     end
 end
 
-vim.keymap.set('n', '<leader>a', M.format)
-
-return M
+vim.keymap.set('n', '<leader>a', format)
