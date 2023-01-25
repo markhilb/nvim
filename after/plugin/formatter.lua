@@ -2,163 +2,54 @@ local function prettier()
     return {
         exe = 'prettier',
         args = { '--stdin-filepath', vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--stdin' },
-        stdin = true,
     }
 end
 
-require('formatter').setup({
-    filetype = {
-        javascript = { prettier },
-        typescript = { prettier },
-        typescriptreact = { prettier },
-        javascriptreact = { prettier },
-        html = { prettier },
-        css = { prettier },
-        scss = { prettier },
-        json = { prettier },
-        lua = function()
-            return {
-                exe = 'stylua',
-                args = { '--search-parent-directories', '--stdin-filepath', vim.api.nvim_buf_get_name(0) },
-            }
-        end,
-        rust = {
-            function()
-                return {
-                    exe = 'rustfmt',
-                    args = { '--emit=stdout' },
-                    stdin = true,
-                }
-            end,
-        },
-        sql = {
-            function()
-                local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
-                return {
-                    exe = 'sql-formatter',
-                    args = config == nil and {} or { '--config', config },
-                    stdin = true,
-                }
-            end,
-        },
-    },
-})
-
-local rust_sql = vim.treesitter.parse_query(
-    'rust',
-    [[
-        (macro_invocation
-            (scoped_identifier
-                path: (identifier) @path (#eq? @path "sqlx")
-                name: (identifier) @name (#match? @name "query")
-            )
-            (token_tree
-                (raw_string_literal) @target
-            )
-        )
-
-        (call_expression
-            (field_expression
-                field: (field_identifier) @_field (#any-of? @_field "query" "execute")
-            )
-            (arguments
-                (raw_string_literal) @target
-            )
-        )
-
-        (macro_invocation
-            macro: (identifier) @_macro (#any-of? @_macro "fetch_optional" "fetch_all" "insert" "execute")
-            (token_tree
-                (raw_string_literal) @target
-            )
-        )
-    ]]
-)
-
-function sql_format(sql)
-    sql = string.gsub(sql, "'", "'\\''")
-    local cmd = "echo '" .. sql .. "' | sql-formatter"
-
-    local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
-    if config then
-        cmd = cmd .. ' -c ' .. config
-    end
-
-    local formatted_string = require('markhilb.utils').get_os_command_output(cmd)
-
-    -- Remove trailing newlines from `formatted_string`
-    for i = #formatted_string, 1, -1 do
-        if formatted_string[i] ~= '' then
-            break
-        end
-        table.remove(formatted_string, i)
-    end
-
-    return formatted_string
-end
-
-local C = {
+local filetype = {
+    javascript = prettier,
+    typescript = prettier,
+    typescriptreact = prettier,
+    javascriptreact = prettier,
+    html = prettier,
+    css = prettier,
+    scss = prettier,
+    json = prettier,
+    markdown = prettier,
+    lua = function()
+        return {
+            exe = 'stylua',
+            args = { '--search-parent-directories', '--stdin-filepath', vim.api.nvim_buf_get_name(0), '-' },
+        }
+    end,
     rust = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-        local root = require('markhilb.utils').get_treesitter_root('rust')
-        local changes = {}
-
-        for id, node in rust_sql:iter_captures(root, bufnr, 0, -1) do
-            local name = rust_sql.captures[id]
-            if name == 'target' then
-                -- { start_row, start_col, end_row, end_col}
-                local range = { node:range() }
-                local text = vim.treesitter.get_node_text(node, bufnr)
-                text = string.sub(text, 4, #text - 3)
-
-                local formatted = sql_format(text)
-                table.insert(changes, 1, { start = range[1] + 1, final = range[3], formatted = formatted })
-            end
-        end
-
-        for _, change in ipairs(changes) do
-            vim.api.nvim_buf_set_lines(bufnr, change.start, change.final, false, change.formatted)
-        end
+        return {
+            exe = 'rustfmt',
+            args = { '--emit=stdout' },
+        }
+    end,
+    sql = function()
+        local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
+        return {
+            exe = 'sql-formatter',
+            args = config == nil and {} or { '--config', config },
+        }
     end,
 }
 
+require('formatter').setup({ filetype = filetype })
+
 local M = {}
 
-function M.format(range, filetype)
+function M.format()
     if vim.bo.filetype == '' then
         vim.cmd('w')
-    elseif require('formatter.config')['values']['filetype'][vim.bo.filetype] == nil then
-        if range then
-            vim.lsp.buf.range_formatting()
-        else
-            vim.lsp.buf.formatting_sync()
-        end
-
-        vim.cmd('w')
+    elseif filetype[vim.bo.filetype] == nil then
+        vim.cmd('FormatInjections | w')
     else
-        if range then
-            vim.api.nvim_feedkeys('\027', 'xt', false)
-
-            if filetype ~= nil then
-                local old = vim.bo.filetype
-                vim.cmd('set filetype=' .. filetype)
-                vim.cmd("'<,'>FormatWrite")
-                vim.cmd('set filetype=' .. old)
-            else
-                vim.cmd("'<,'>FormatWrite")
-            end
-        else
-            if C[vim.bo.filetype] ~= nil then
-                C[vim.bo.filetype]()
-            end
-
-            vim.cmd('w | FormatWrite')
-        end
+        vim.cmd('Format | w')
     end
 end
 
 vim.keymap.set('n', '<leader>a', M.format)
-vim.keymap.set('v', '<leader>a', function() M.format(true) end)
-vim.keymap.set('v', '<leader>s', function() M.format(true, 'sql') end)
 
 return M

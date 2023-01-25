@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     use('wellle/targets.vim')
     use('phaazon/hop.nvim')
 
-    use('mhartington/formatter.nvim')
+    use('seblj/formatter.nvim')
 
     use('ibhagwan/fzf-lua')
 
