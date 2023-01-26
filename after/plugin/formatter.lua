@@ -42,7 +42,7 @@ local function format()
     if vim.bo.filetype == '' then
         vim.cmd('w')
     elseif filetype[vim.bo.filetype] == nil then
-        vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.format()
         vim.cmd('FormatInjections | w')
     else
         vim.cmd('Format | w')
