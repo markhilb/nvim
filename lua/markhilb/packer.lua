@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
     use('phaazon/hop.nvim')
 
     use({
-        'seblj/formatter.nvim',
+        'seblj/nvim-formatter',
         requires = { 'nvim-lua/plenary.nvim' },
     })
 

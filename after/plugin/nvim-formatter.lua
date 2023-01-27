@@ -43,9 +43,9 @@ local function format()
         vim.cmd('w')
     elseif filetype[vim.bo.filetype] == nil then
         vim.lsp.buf.format()
-        vim.cmd('FormatInjections | w')
+        vim.cmd.FormatInjections()
     else
-        vim.cmd('Format | w')
+        vim.cmd.Format()
     end
 end
 
