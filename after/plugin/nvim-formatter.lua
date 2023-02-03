@@ -31,7 +31,7 @@ local filetype = {
         local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
         return {
             exe = 'sql-formatter',
-            args = config == nil and {} or { '--config', config },
+            args = config == nil and { '-l', 'postgresql' } or { '--config', config },
         }
     end,
 }
