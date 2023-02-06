@@ -43,6 +43,7 @@ local function format()
 
     if filetype[vim.bo.filetype] == nil then
         vim.lsp.buf.format()
+        vim.cmd('w')
         vim.cmd.FormatWrite('injections')
     else
         vim.cmd.FormatWrite()
