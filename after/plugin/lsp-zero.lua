@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'eslint',
     'angularls',
     'cssls',
-    'sumneko_lua',
+    'lua_ls',
     'rust_analyzer',
     'taplo',
     'omnisharp',
