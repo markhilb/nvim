@@ -53,19 +53,4 @@ function M.get_treesitter_root(language)
     return tree:root()
 end
 
-local read_file = function(path)
-    local fd = assert(vim.loop.fs_open(path, 'r', 438))
-    local stat = assert(vim.loop.fs_fstat(fd))
-    return vim.loop.fs_read(fd, stat.size, 0)
-end
-
-function M.override_queries(lang, query_name)
-    local queries_folder = vim.fs.normalize('~/.config/nvim/after/queries')
-    vim.treesitter.query.set_query(
-        lang,
-        query_name,
-        read_file(queries_folder .. string.format('/%s/%s.scm', lang, query_name))
-    )
-end
-
 return M
