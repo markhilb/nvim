@@ -15,16 +15,11 @@ local filetype = {
     scss = prettier,
     json = prettier,
     markdown = prettier,
+    rust = 'rustfmt --edition=2021',
     lua = function()
         return {
             exe = 'stylua',
             args = { '--search-parent-directories', '--stdin-filepath', vim.api.nvim_buf_get_name(0), '-' },
-        }
-    end,
-    rust = function()
-        return {
-            exe = 'rustfmt',
-            args = { '--emit=stdout', '--edition=2021' },
         }
     end,
     sql = function()
