@@ -42,6 +42,14 @@ lsp.configure('jsonls', {
     },
 })
 
+lsp.configure('yamlls', {
+    settings = {
+        yaml = {
+            keyOrdering = false,
+        },
+    },
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 lsp.setup_nvim_cmp({
