@@ -22,18 +22,6 @@ function M.git_root()
     return git_root == nil and '' or git_root
 end
 
-function M.get_os_command_output(cmd, cwd)
-    local result = {}
-    local job = vim.fn.jobstart(cmd, {
-        cwd = cwd,
-        stdout_buffered = true,
-        on_stdout = function(_, output, _) result = output end,
-    })
-    vim.fn.jobwait({ job })
-
-    return result
-end
-
 function _reverse_find_file(file, dir)
     local files = M.get_os_command_output({ 'ls', '-a1' }, dir)
     for _, x in pairs(files) do
