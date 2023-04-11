@@ -95,21 +95,22 @@ highlight({
     iCursor = { link = 'Cursor' },
     lCursor = { link = 'Cursor' },
     vCursor = { link = 'Cursor' },
-    --
+
     ---------- SYNTAX GROUP NAMES ----------
     Boolean = { fg = c.dark_yellow },
     Character = { fg = c.dark_yellow },
     Comment = { fg = c.teal, italic = true },
     ['@comment.documentation'] = { fg = c.light_seagreen, italic = true },
     Conditional = { fg = c.blue },
-    Constant = { fg = c.orange },
+    Constant = {},
     Define = { fg = c.red },
     Delimiter = { fg = c.fg },
     Error = { fg = c.red },
     Exception = { fg = c.red },
     Float = { fg = c.light_purple },
     Function = { fg = c.dark_pink },
-    Identifier = { fg = c.orange },
+    -- TODO: Apparently this needs to be empty, or it will override other tags (e.g. `@property`)
+    Identifier = {},
     Ignore = { fg = c.grey },
     Include = { fg = c.red },
     Keyword = { fg = c.dark_yellow },
@@ -126,15 +127,15 @@ highlight({
     Statement = { fg = c.blue },
     StorageClass = { fg = c.blue },
     String = { fg = c.green },
-    Structure = { fg = c.orange },
+    Structure = {},
     Tag = { fg = c.blue },
     Title = { fg = c.red, bold = true },
     ['@text.note'] = { fg = c.blue, italic = true, bold = true },
     ['@text.warning'] = { fg = c.dark_yellow, italic = true, bold = true },
     Type = { fg = c.blue },
-    Typedef = { fg = c.red },
+    Typedef = {},
     Underlined = { underline = true },
-    --
+
     ---------- TREESITTER ----------
     ['@constructor'] = { fg = c.light_pink },
     ['@constant.builtin'] = { fg = c.light_pink },
@@ -159,12 +160,12 @@ highlight({
     ['@variable'] = { fg = c.fg },
     ['@variable.builtin'] = { fg = c.light_pink },
     ['@text.todo'] = { fg = c.dark_yellow, bold = true },
-    --
+
     ---------- LANGUGE SPECIFIC ----------
     typescriptParenExp = { link = '@punctBracket' },
     typescript1 = { link = '@punctBracket' },
     typescriptParens = { link = '@punctBracket' },
-    --
+
     ---------- NVIM LSPCONFIG ----------
     DiagnosticError = { fg = c.red },
     DiagnosticHint = { fg = c.fg },
@@ -178,11 +179,11 @@ highlight({
     LspReferenceText = { bg = c.bg2 },
     LspReferenceRead = { bg = c.bg2 },
     LspReferenceWrite = { bg = c.bg2 },
-    --
+
     ---------- HELP ----------
     helpCommand = { fg = c.dark_yellow },
     helpExample = { fg = c.green },
-    --
+
     ---------- CMP ----------
     CmpCompletionWindow = { bg = c.bg },
     CmpItemAbbrMatch = { fg = c.middle_purple },
@@ -212,7 +213,7 @@ highlight({
     CmpItemKindUnit = { fg = c.middle_purple },
     CmpItemKindValue = { fg = c.middle_purple },
     CmpItemKindVariable = { link = '@variable' },
-    --
+
     ---------- MARKDOWN ----------
     ['@text.h1'] = { fg = c.red, bold = true },
     ['@text.h2'] = { fg = c.orange, bold = true },
