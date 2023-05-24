@@ -86,7 +86,10 @@ lsp.set_preferences({
     },
 })
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
+    -- Disable lsp semantic highlighting
+    client.server_capabilities.semanticTokensProvider = nil
+
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set('n', 'gd', function() require('fzf-lua').lsp_definitions() end, opts)
