@@ -44,6 +44,10 @@ vim.keymap.set('n', '<S-Down>', ':resize -5<CR>', { silent = true })
 vim.keymap.set('n', '<S-Left>', ':vertical resize -5<CR>', { silent = true })
 vim.keymap.set('n', '<S-Right>', ':vertical resize +5<CR>', { silent = true })
 
+-- Quickfix list
+vim.keymap.set('n', '<C-j>', ':cnext<CR>zz', { silent = true })
+vim.keymap.set('n', '<C-k>', ':cprev<CR>zz', { silent = true })
+
 --
 -- Leader specific maps
 --
@@ -56,6 +60,10 @@ vim.keymap.set('n', '<leader>Y', '"+Y')
 
 -- Delete into black hole register
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
+
+-- Quickfix list
+vim.keymap.set('n', '<leader>co', ':copen<CR>', { silent = true })
+vim.keymap.set('n', '<leader>cc', ':cclose<CR>', { silent = true })
 
 -- Save file
 vim.keymap.set('n', '<leader>w', ':w<CR>')
