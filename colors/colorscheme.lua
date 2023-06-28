@@ -219,4 +219,7 @@ highlight({
     ['@text.h6'] = { fg = c.purple4, bold = true },
     ['@text.uri'] = { fg = c.blue, underline = true },
     ['@text.reference'] = { fg = c.red },
+
+    ---------- FLASH ----------
+    FlashLabel = { fg = c.red },
 })
