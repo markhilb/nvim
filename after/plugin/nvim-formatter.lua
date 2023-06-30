@@ -16,7 +16,7 @@ local filetype = {
     json = prettier,
     markdown = prettier,
     rust = 'rustfmt --edition=2021',
-    lua = { 'stylua', '--search-parent-directories', '-' },
+    lua = 'stylua --search-parent-directories -',
     sql = function()
         local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
         return {
