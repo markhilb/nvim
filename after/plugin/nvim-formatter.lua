@@ -1,20 +1,13 @@
-local function prettier()
-    return {
-        exe = 'prettier',
-        args = { '--stdin-filepath', vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--stdin' },
-    }
-end
-
 local filetype = {
-    javascript = prettier,
-    typescript = prettier,
-    typescriptreact = prettier,
-    javascriptreact = prettier,
-    html = prettier,
-    css = prettier,
-    scss = prettier,
-    json = prettier,
-    markdown = prettier,
+    javascript = 'prettier --stdin-filepath .js',
+    typescript = 'prettier --stdin-filepath .ts',
+    typescriptreact = 'prettier --stdin-filepath .tsx',
+    javascriptreact = 'prettier --stdin-filepath .jsx',
+    html = 'prettier --stdin-filepath .html',
+    css = 'prettier --stdin-filepath .css',
+    scss = 'prettier --stdin-filepath .scss',
+    json = 'prettier --stdin-filepath .json',
+    markdown = 'prettier --stdin-filepath .md',
     rust = 'rustfmt --edition=2021',
     lua = 'stylua --search-parent-directories -',
     sql = function()

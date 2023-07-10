@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     use('wellle/targets.vim')
     use('folke/flash.nvim')
 
-    use({ 'seblj/nvim-formatter' })
+    use({ 'seblj/nvim-formatter', branch = 'glob-pattern-fix' })
 
     use('ibhagwan/fzf-lua')
 
