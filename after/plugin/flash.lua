@@ -14,8 +14,6 @@ flash.setup({
     },
 })
 
-vim.keymap.set({ 'n', 'x' }, 'r', function()
-    flash.jump({ search = { mode = function(str) return '\\<' .. str end } })
-end)
+vim.keymap.set({ 'n', 'x' }, 'r', flash.jump)
 vim.keymap.set({ 'o' }, 'r', flash.remote)
 vim.keymap.set({ 'n', 'x', 'o' }, 'R', flash.treesitter_search)
