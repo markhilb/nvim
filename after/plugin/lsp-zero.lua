@@ -88,7 +88,9 @@ lsp.set_preferences({
 
 lsp.on_attach(function(client, bufnr)
     -- Disable lsp semantic highlighting
-    client.server_capabilities.semanticTokensProvider = nil
+    if client.server_capabilities ~= nil then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
 
     local opts = { buffer = bufnr, remap = false }
 
