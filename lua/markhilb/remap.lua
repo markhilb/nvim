@@ -32,7 +32,7 @@ vim.keymap.set('v', 'p', '"_dp')
 vim.keymap.set('v', 'P', '"_dP')
 
 -- Search for selected text
-vim.keymap.set('v', '//', "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
+vim.keymap.set('v', '/', "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
 
 -- Don't go to next word when highlighting
 vim.keymap.set('n', '*', ':execute "normal! *N"<CR>', { silent = true })
