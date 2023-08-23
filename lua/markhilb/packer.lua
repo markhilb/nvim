@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     use('windwp/nvim-ts-autotag')
     use({ 'windwp/nvim-autopairs', config = "require('nvim-autopairs').setup({})" })
     use('wellle/targets.vim')
-    use('folke/flash.nvim')
+    use('phaazon/hop.nvim')
 
     use({ 'seblj/nvim-formatter' })
 
