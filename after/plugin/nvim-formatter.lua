@@ -10,6 +10,7 @@ local filetype = {
     markdown = 'prettier --stdin-filepath .md',
     rust = 'rustfmt --edition=2021',
     lua = 'stylua --search-parent-directories -',
+    python = 'autopep8 -',
     sql = function()
         local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
         return {
