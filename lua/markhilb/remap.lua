@@ -71,7 +71,7 @@ vim.keymap.set('n', '<leader>W', ':w!<CR>')
 vim.keymap.set('n', '<leader>b', ':wa | sus<CR>')
 
 -- Unhighlight search
-vim.keymap.set('n', '<leader>l', ':noh<CR>', { silent = true })
+vim.keymap.set('n', '<leader>u', ':noh<CR>', { silent = true })
 
 -- New tab
 vim.keymap.set('n', '<leader>n', ':tabedit<CR>', { silent = true })
@@ -91,8 +91,7 @@ vim.keymap.set('v', '<leader>"', ':s/\'/"/g<CR>')
 
 -- Split management
 vim.keymap.set('n', '<leader>v', ':vnew<CR>', { silent = true })
-vim.keymap.set('n', '<leader>h', ':new<CR>', { silent = true })
-vim.keymap.set('n', '<leader><Up>', '<C-w><Up>')
-vim.keymap.set('n', '<leader><Down>', '<C-w><Down>')
-vim.keymap.set('n', '<leader><Left>', '<C-w><Left>')
-vim.keymap.set('n', '<leader><Right>', '<C-w><Right>')
+vim.keymap.set('n', '<leader>k', '<C-w><Up>')
+vim.keymap.set('n', '<leader>j', '<C-w><Down>')
+vim.keymap.set('n', '<leader>h', '<C-w><Left>')
+vim.keymap.set('n', '<leader>l', '<C-w><Right>')
