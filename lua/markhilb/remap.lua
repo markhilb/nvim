@@ -28,8 +28,7 @@ vim.keymap.set('v', '"', 's""<ESC>P')
 vim.keymap.set('v', "'", "s''<ESC>P")
 
 -- Don't overwrite clipboard on visual paste
-vim.keymap.set('v', 'p', '"_dp')
-vim.keymap.set('v', 'P', '"_dP')
+vim.keymap.set('v', 'p', '"_dP')
 
 -- Search for selected text
 vim.keymap.set('v', '/', "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
