@@ -23,11 +23,19 @@ lsp.configure('rust_analyzer', {
             cargo = {
                 allFeatures = true,
                 allTargets = true,
+                extraEnv = {
+                    CARGO_TARGET_DIR = '/home/markus/.cargo/target/rust-analyzer',
+                },
             },
             check = {
                 command = 'clippy',
                 allFeatures = true,
                 allTargets = true,
+            },
+            diagnostics = {
+                disabled = {
+                    'needless_return',
+                },
             },
         },
     },
