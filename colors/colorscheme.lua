@@ -144,6 +144,7 @@ highlight({
     ['@keyword.conditional'] = { link = 'Conditional' },
     ['@keyword.import'] = { link = 'Include' },
     ['@keyword.return'] = { fg = c.blue },
+    ['@keyword.repeat'] = { fg = c.blue },
     ['@module'] = { link = '@namespace' },
     ['@namespace'] = { fg = c.purple_red },
     ['@note'] = { fg = c.blue, bold = true },
