@@ -162,7 +162,10 @@ highlight({
     ['@variable.member'] = { link = '@property' },
     ['@text.todo'] = { fg = c.dark_yellow, bold = true },
 
-    ---------- LANGUGE SPECIFIC ----------
+    ---------- RUST ----------
+    ['@variable.member.rust'] = { link = '@field' },
+
+    ---------- TYPESCRIPT ----------
     typescriptParenExp = { link = '@punctBracket' },
     typescript1 = { link = '@punctBracket' },
     typescriptParens = { link = '@punctBracket' },
