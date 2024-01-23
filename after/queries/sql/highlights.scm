@@ -1,10 +1,12 @@
 ; extends
 
-(field) @variable
+(field
+  (identifier) @field
+)
 
-(parameter) @type
+(parameter) @sql.parameter
 
-(column) @variable
+(column) @field
 
 (invocation
   (object_reference) @function

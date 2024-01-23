@@ -28,6 +28,7 @@ local c = {
     dark_yellow = '#e7c664',
     green = '#50af87',
     light_seagreen = '#20B2AA',
+    light_blue = '#7db9d0',
     blue = '#5f97e7',
     dark_purple = '#8787d7',
     middle_purple = '#875faf',
@@ -143,6 +144,7 @@ highlight({
     ['@keyword.conditional'] = { link = 'Conditional' },
     ['@keyword.import'] = { link = 'Include' },
     ['@keyword.return'] = { fg = c.blue },
+    ['@module'] = { link = '@namespace' },
     ['@namespace'] = { fg = c.purple_red },
     ['@note'] = { fg = c.blue, bold = true },
     ['@parameter'] = { fg = c.fg },
@@ -222,4 +224,7 @@ highlight({
     ['@text.h6'] = { fg = c.purple4, bold = true },
     ['@text.uri'] = { fg = c.blue, underline = true },
     ['@text.reference'] = { fg = c.red },
+
+    ---------- SQL ----------
+    ['@sql.parameter'] = { fg = c.light_blue },
 })
