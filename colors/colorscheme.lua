@@ -140,6 +140,8 @@ highlight({
     ['@function.builtin'] = { link = 'Function' },
     ['@function.call'] = { link = 'Function' },
     ['@function.macro'] = { link = 'Macro' },
+    ['@keyword.conditional'] = { link = 'Conditional' },
+    ['@keyword.import'] = { link = 'Include' },
     ['@keyword.return'] = { fg = c.blue },
     ['@namespace'] = { fg = c.purple_red },
     ['@note'] = { fg = c.blue, bold = true },
@@ -155,6 +157,7 @@ highlight({
     ['@type.qualifier'] = { link = '@keyword' },
     ['@variable'] = { fg = c.fg },
     ['@variable.builtin'] = { fg = c.light_pink },
+    ['@variable.member'] = { link = '@property' },
     ['@text.todo'] = { fg = c.dark_yellow, bold = true },
 
     ---------- LANGUGE SPECIFIC ----------
