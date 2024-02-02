@@ -161,7 +161,9 @@ highlight({
     ['@variable'] = { fg = c.fg },
     ['@variable.builtin'] = { fg = c.light_pink },
     ['@variable.member'] = { link = '@property' },
-    ['@text.todo'] = { fg = c.dark_yellow, bold = true },
+    ['@comment.todo'] = { fg = c.dark_yellow, bold = true },
+    ['@comment.note'] = { fg = c.blue, bold = true },
+    ['@comment.error'] = { fg = c.red, bold = true },
 
     ---------- RUST ----------
     ['@variable.member.rust'] = { link = '@field' },
