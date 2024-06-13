@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
 
     use({ 'norcalli/nvim-colorizer.lua', config = "require('colorizer').setup()" })
     use('tpope/vim-commentary')
-    use('windwp/nvim-ts-autotag')
+    use({ 'windwp/nvim-ts-autotag', config = "require('nvim-ts-autotag').setup({})" })
     use({ 'windwp/nvim-autopairs', config = "require('nvim-autopairs').setup({})" })
     use('wellle/targets.vim')
     use('phaazon/hop.nvim')
