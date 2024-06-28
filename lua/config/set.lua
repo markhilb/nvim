@@ -3,6 +3,8 @@ vim.cmd.colorscheme('colorscheme')
 vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = 'auto'
+vim.g.lsp_zero_ui_signcolumn = 0
 vim.opt.scrolloff = 8
 vim.opt.termguicolors = true
 vim.opt.lazyredraw = true
