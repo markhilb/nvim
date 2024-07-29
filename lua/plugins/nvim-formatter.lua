@@ -16,7 +16,7 @@ return {
             lua = 'stylua --search-parent-directories -',
             python = 'autopep8 -',
             sql = function()
-                local config = require('markhilb.utils').reverse_find_file('.sql-formatter.json')
+                local config = require('config.utils').reverse_find_file('.sql-formatter.json')
                 return {
                     exe = 'sql-formatter',
                     args = config == nil and { '-l', 'postgresql' } or { '--config', config },
