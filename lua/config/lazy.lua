@@ -21,8 +21,6 @@ require('lazy').setup({
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { 'colorscheme' } },
-    -- automatically check for plugin updates
-    checker = { enabled = true },
 })
 
 vim.keymap.set('n', '<leader>s', ':Lazy update<CR>')
