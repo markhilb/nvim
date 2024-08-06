@@ -17,9 +17,7 @@ return {
         'b0o/schemastore.nvim',
     },
     config = function()
-        local lsp = require('lsp-zero')
-
-        lsp.on_attach(function(client, bufnr)
+        local lsp_attach = function(client, bufnr)
             -- Disable lsp semantic highlighting
             if client.server_capabilities ~= nil then
                 client.server_capabilities.semanticTokensProvider = {}
@@ -40,7 +38,14 @@ return {
             vim.keymap.set('n', '<leader>ca', function() require('fzf-lua').lsp_code_actions() end, opts)
             vim.keymap.set('n', '<leader>o', function() require('fzf-lua').lsp_document_diagnostics() end, opts)
             vim.keymap.set('n', '<leader>O', function() require('fzf-lua').lsp_workspace_diagnostics() end, opts)
-        end)
+        end
+
+        require('lsp-zero').extend_lspconfig({
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            lsp_attach = lsp_attach,
+            float_border = 'rounded',
+            sign_text = true,
+        })
 
         require('mason').setup({})
         require('mason-lspconfig').setup({
@@ -115,7 +120,7 @@ return {
             completion = {
                 completeopt = 'menu,menuone,noinsert',
             },
-            mapping = lsp.defaults.cmp_mappings({
+            mapping = cmp.mapping.preset.insert({
                 ['<Tab>'] = nil,
                 ['<S-Tab>'] = nil,
                 ['<Up>'] = nil,
@@ -128,6 +133,9 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
+            snippet = {
+                expand = function(args) require('luasnip').lsp_expand(args.body) end,
+            },
             formatting = {
                 format = function(_, vim_item)
                     if vim.bo.filetype == 'rust' and vim_item.menu ~= nil then
