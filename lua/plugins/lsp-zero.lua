@@ -65,29 +65,7 @@ return {
                 function(server_name) require('lspconfig')[server_name].setup({}) end,
                 angularls = function() require('lspconfig').angularls.setup({ filetypes = { 'html' } }) end,
                 rust_analyzer = function()
-                    require('lspconfig').rust_analyzer.setup({
-                        settings = {
-                            ['rust-analyzer'] = {
-                                cargo = {
-                                    allFeatures = true,
-                                    allTargets = true,
-                                    extraEnv = {
-                                        CARGO_TARGET_DIR = '/home/markus/.cargo/target/rust-analyzer',
-                                    },
-                                },
-                                check = {
-                                    command = 'clippy',
-                                    allFeatures = true,
-                                    allTargets = true,
-                                },
-                                diagnostics = {
-                                    disabled = {
-                                        'needless_return',
-                                    },
-                                },
-                            },
-                        },
-                    })
+                    -- Configured in rustaceanvim
                 end,
                 jsonls = function()
                     require('lspconfig').jsonls.setup({
