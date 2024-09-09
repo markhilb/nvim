@@ -1,7 +1,14 @@
 return {
     'seblj/nvim-formatter',
     keys = {
-        { '<leader>a', function() vim.cmd.Format() end, desc = 'Format buffer' },
+        {
+            '<leader>a',
+            function()
+                vim.cmd('w')
+                vim.cmd.Format()
+            end,
+            desc = 'Format buffer',
+        },
     },
     config = function()
         require('formatter').setup({
