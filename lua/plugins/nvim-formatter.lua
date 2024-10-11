@@ -11,7 +11,6 @@ local filetype = {
     yaml = 'prettierd .yaml',
     rust = 'rustfmt --edition=2021',
     lua = 'stylua --search-parent-directories -',
-    python = 'autopep8 -',
     c = 'clang-format',
     sql = function()
         local config = require('config.utils').reverse_find_file('.sql-formatter.json')
