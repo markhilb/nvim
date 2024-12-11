@@ -75,10 +75,6 @@ vim.keymap.set('n', '<leader>u', ':noh<CR>', { silent = true })
 -- New tab
 vim.keymap.set('n', '<leader>n', ':tabedit<CR>', { silent = true })
 
--- File explorer
-vim.keymap.set('n', '<leader>e', ':tabedit<CR>:Explore<CR>', { silent = true })
-vim.keymap.set('n', '<leader>E', ':Explore<CR>', { silent = true })
-
 -- Search previous commands
 vim.keymap.set('n', '<leader>r', 'q:?')
 
