@@ -7,23 +7,67 @@ return {
             'mfussenegger/nvim-dap',
             keys = {
                 { '<leader>d', '', desc = '+debug', mode = { 'n', 'v' } },
-                { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
-                { '<leader>dB', function() require('dap').clear_breakpoints() end, desc = 'Clear Breakpoints' },
-                { '<leader>dc', function() require('dap').continue() end, desc = 'Continue' },
-                { '<leader>dC', function() require('dap').run_to_cursor() end, desc = 'Run to Cursor' },
-                { '<leader>dl', function() require('dap').run_last() end, desc = 'Run Last' },
-                { '<leader>ds', function() require('dap').step_into() end, desc = 'Step Into' },
-                { '<leader>dS', function() require('dap').step_out() end, desc = 'Step Out' },
-                { '<leader>dn', function() require('dap').step_over() end, desc = 'Step Over' },
-                { '<leader>dt', function() require('dap').terminate() end, desc = 'Terminate' },
-                { '<leader>dk', function() require('dap.ui.widgets').hover() end, desc = 'Hover' },
+                {
+                    '<leader>db',
+                    function() require('dap').toggle_breakpoint() end,
+                    desc = 'Toggle Breakpoint',
+                },
+                {
+                    '<leader>dB',
+                    function() require('dap').clear_breakpoints() end,
+                    desc = 'Clear Breakpoints',
+                },
+                {
+                    '<leader>dc',
+                    function() require('dap').continue() end,
+                    desc = 'Continue',
+                },
+                {
+                    '<leader>dC',
+                    function() require('dap').run_to_cursor() end,
+                    desc = 'Run to Cursor',
+                },
+                {
+                    '<leader>dl',
+                    function() require('dap').run_last() end,
+                    desc = 'Run Last',
+                },
+                {
+                    '<leader>ds',
+                    function() require('dap').step_into() end,
+                    desc = 'Step Into',
+                },
+                {
+                    '<leader>dS',
+                    function() require('dap').step_out() end,
+                    desc = 'Step Out',
+                },
+                {
+                    '<leader>dn',
+                    function() require('dap').step_over() end,
+                    desc = 'Step Over',
+                },
+                {
+                    '<leader>dt',
+                    function() require('dap').terminate() end,
+                    desc = 'Terminate',
+                },
+                {
+                    '<leader>dk',
+                    function() require('dap.ui.widgets').hover() end,
+                    desc = 'Hover',
+                },
             },
         },
         {
             'rcarriga/nvim-dap-ui',
             dependencies = { 'nvim-neotest/nvim-nio' },
             keys = {
-                { '<leader>du', function() require('dapui').toggle({}) end, desc = 'Dap UI' },
+                {
+                    '<leader>du',
+                    function() require('dapui').toggle({}) end,
+                    desc = 'Dap UI',
+                },
             },
             opts = {},
             config = function(_, opts)
@@ -61,9 +105,21 @@ return {
     },
     keys = {
         -- Debugger
-        { '<leader>dD', function() vim.cmd.RustLsp('debug') end, desc = 'Run RustLsp debug' },
-        { '<leader>DD', function() vim.cmd.RustLsp({ 'debug', bang = true }) end, desc = 'Run RustLsp! debug' },
-        { '<leader>dd', function() vim.cmd.RustLsp('debuggables') end, desc = 'Run RustLsp debugger' },
+        {
+            '<leader>dD',
+            function() vim.cmd.RustLsp('debug') end,
+            desc = 'Run RustLsp debug',
+        },
+        {
+            '<leader>DD',
+            function() vim.cmd.RustLsp({ 'debug', bang = true }) end,
+            desc = 'Run RustLsp! debug',
+        },
+        {
+            '<leader>dd',
+            function() vim.cmd.RustLsp('debuggables') end,
+            desc = 'Run RustLsp debugger',
+        },
         {
             '<leader>Dd',
             function() vim.cmd.RustLsp({ 'debuggables', bang = true }) end,
@@ -71,9 +127,21 @@ return {
         },
 
         -- Other
-        { '<leader>rc', function() vim.cmd.RustLsp('openCargo') end, desc = 'Open Cargo.toml' },
-        { '<leader>rd', function() vim.cmd.RustLsp('openDocs') end, desc = 'Open docs.rs' },
-        { '<leader>rp', function() vim.cmd.RustLsp('parentModule') end, desc = 'Open Parent Module' },
+        {
+            '<leader>rc',
+            function() vim.cmd.RustLsp('openCargo') end,
+            desc = 'Open Cargo.toml',
+        },
+        {
+            '<leader>rd',
+            function() vim.cmd.RustLsp('openDocs') end,
+            desc = 'Open docs.rs',
+        },
+        {
+            '<leader>rp',
+            function() vim.cmd.RustLsp('parentModule') end,
+            desc = 'Open Parent Module',
+        },
     },
     config = function()
         vim.g.rustaceanvim = {
@@ -83,6 +151,7 @@ return {
                         cargo = {
                             allFeatures = true,
                             allTargets = true,
+                            targetDir = '/home/markus/.cargo/target/rust-analyzer',
                             extraEnv = {
                                 CARGO_TARGET_DIR = '/home/markus/.cargo/target/rust-analyzer',
                             },
