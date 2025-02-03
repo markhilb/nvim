@@ -162,6 +162,7 @@ return {
                             allTargets = true,
                         },
                         diagnostics = {
+                            refreshSupport = false,
                             disabled = {
                                 'needless_return',
                             },
