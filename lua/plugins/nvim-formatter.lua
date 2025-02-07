@@ -22,7 +22,7 @@ local filetype = {
 }
 
 return {
-    'seblj/nvim-formatter',
+    'seblyng/nvim-formatter',
     keys = {
         {
             '<leader>a',
