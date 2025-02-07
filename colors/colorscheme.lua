@@ -167,6 +167,7 @@ highlight({
 
     ---------- RUST ----------
     ['@variable.member.rust'] = { link = '@field' },
+    ['@keyword.exception.rust'] = { link = '@function.macro' },
 
     ---------- TYPESCRIPT ----------
     typescriptParenExp = { link = '@punctBracket' },
