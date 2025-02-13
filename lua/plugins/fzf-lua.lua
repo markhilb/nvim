@@ -19,6 +19,9 @@ return {
             grep = {
                 rg_opts = '--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512',
             },
+            lsp = {
+                jump1 = false,
+            },
         })
 
         vim.keymap.set('n', '<leader>p', function() fzf_lua.files({ cwd = require('config.utils').git_root() }) end)
