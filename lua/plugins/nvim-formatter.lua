@@ -9,7 +9,7 @@ local filetype = {
     json = 'prettierd .json',
     markdown = 'prettierd .md',
     yaml = 'prettierd .yaml',
-    rust = 'rustfmt --edition=2021',
+    rust = 'rustfmt --edition=2024',
     lua = 'stylua --search-parent-directories -',
     c = 'clang-format',
     sql = function()
