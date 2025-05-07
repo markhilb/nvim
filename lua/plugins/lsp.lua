@@ -61,24 +61,22 @@ return {
             util.default_config.capabilities =
                 vim.tbl_deep_extend('force', defaults, require('cmp_nvim_lsp').default_capabilities())
 
-            local server_configs = {
-                angularls = { filetypes = { 'html' } },
-                jsonls = {
-                    settings = {
-                        json = {
-                            schemas = require('schemastore').json.schemas(),
-                            validate = { enable = true },
-                        },
+            vim.lsp.config('angularls', { filetypes = { 'html' } })
+            vim.lsp.config('jsonls', {
+                settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas(),
+                        validate = { enable = true },
                     },
                 },
-                yamlls = {
-                    settings = {
-                        yaml = {
-                            keyOrdering = false,
-                        },
+            })
+            vim.lsp.config('yamlls', {
+                settings = {
+                    yaml = {
+                        keyOrdering = false,
                     },
                 },
-            }
+            })
 
             require('mason-lspconfig').setup({
                 ensure_installed = {
@@ -94,15 +92,8 @@ return {
                     'jsonls',
                     'dockerls',
                 },
-                handlers = {
-                    function(server_name)
-                        if server_name == 'rust_analyzer' then
-                            -- Setup is handled by `rustaceanvim`
-                            return
-                        end
-
-                        require('lspconfig')[server_name].setup(server_configs[server_name] or {})
-                    end,
+                automatic_enable = {
+                    exclude = { 'rust_analyzer' },
                 },
             })
 
