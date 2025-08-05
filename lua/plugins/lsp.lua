@@ -39,11 +39,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 return {
     {
-        'williamboman/mason-lspconfig.nvim',
+        'mason-org/mason-lspconfig.nvim',
         dependencies = {
             'neovim/nvim-lspconfig',
             'b0o/schemastore.nvim',
-            { 'williamboman/mason.nvim', opts = {} },
+            { 'mason-org/mason.nvim', opts = {} },
             --
             'hrsh7th/nvim-cmp',
             'hrsh7th/cmp-buffer',

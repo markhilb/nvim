@@ -24,6 +24,8 @@ return {
             },
         })
 
+        fzf_lua.register_ui_select()
+
         vim.keymap.set('n', '<leader>p', function() fzf_lua.files({ cwd = require('config.utils').git_root() }) end)
         vim.keymap.set('n', '<leader>P', fzf_lua.files)
         vim.keymap.set(
