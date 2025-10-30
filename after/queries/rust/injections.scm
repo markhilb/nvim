@@ -10,6 +10,7 @@
             (string_content) @injection.content
         )
     )
+    (#set! "priority" 1000)
     (#set! injection.language "sql")
 )
 
