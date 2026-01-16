@@ -87,10 +87,11 @@ return {
                     'lua_ls',
                     'rust_analyzer',
                     'taplo',
-                    'omnisharp',
                     'yamlls',
                     'jsonls',
                     'dockerls',
+                    'ty',
+                    'ruff',
                 },
                 automatic_enable = {
                     exclude = { 'rust_analyzer' },
