@@ -90,3 +90,7 @@ vim.keymap.set('n', '<leader>k', '<C-w><Up>')
 vim.keymap.set('n', '<leader>j', '<C-w><Down>')
 vim.keymap.set('n', '<leader>h', '<C-w><Left>')
 vim.keymap.set('n', '<leader>l', '<C-w><Right>')
+
+-- Session management
+vim.keymap.set('n', '<leader>z', ':mksession! ~/.cache/nvim/session.vim | wqa<CR>', { silent = true })
+vim.keymap.set('n', '<leader>Z', ':source ~/.cache/nvim/session.vim<CR>', { silent = true })
