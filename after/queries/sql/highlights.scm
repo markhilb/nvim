@@ -1,9 +1,5 @@
 ; extends
 
-(field
-  (identifier) @field
-)
-
 (parameter) @sql.parameter
 
 (column) @field

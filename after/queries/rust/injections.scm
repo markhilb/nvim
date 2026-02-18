@@ -10,8 +10,8 @@
             (string_content) @injection.content
         )
     )
-    (#set! "priority" 1000)
     (#set! injection.language "sql")
+    (#set! "priority" 110)
 )
 
 (macro_invocation

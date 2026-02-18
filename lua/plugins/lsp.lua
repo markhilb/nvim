@@ -10,7 +10,7 @@ local function lsp_attach(event)
 
     -- Disable lsp semantic highlighting
     if client.server_capabilities ~= nil then
-        client.server_capabilities.semanticTokensProvider = {}
+        client.server_capabilities.semanticTokensProvider = nil
     end
 
     local opts = { buffer = bufnr, remap = false }
