@@ -1,16 +1,23 @@
 return {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-        'nvim-treesitter/playground',
+    lazy = false,
+    build = ':TSUpdate',
+    keys = {
+        { '<leader>H', ':Inspect<CR>', { silent = true } },
     },
     config = function()
-        require('nvim-treesitter.configs').setup({
-            ensure_installed = { 'comment' },
-            auto_install = true,
+        require('nvim-treesitter').setup({
             highlight = { enable = true },
         })
 
-        vim.keymap.set('n', '<leader>H', ':TSHighlightCapturesUnderCursor<CR>', { silent = true })
-        vim.cmd([[ :TSUpdate ]])
+        vim.api.nvim_create_autocmd('FileType', {
+            callback = function()
+                local ft = vim.bo.filetype
+                local lang = vim.treesitter.language.get_lang(ft)
+                if #vim.treesitter.query.get_files(lang, 'highlights') > 0 then
+                    vim.treesitter.start()
+                end
+            end,
+        })
     end,
 }
