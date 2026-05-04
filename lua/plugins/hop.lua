@@ -1,10 +1,14 @@
 return {
-    'phaazon/hop.nvim',
-    config = function()
-        local hop = require('hop')
-
-        hop.setup({ keys = 'qgmlwbyuvdstnriaeohzxcfjkp' })
-
-        vim.keymap.set({ 'n', 'v' }, 'r', hop.hint_char1)
-    end,
+    'smoka7/hop.nvim',
+    opts = {
+        keys = 'qgmlwbyuvdstnriaeohzxcfjkp',
+    },
+    keys = {
+        {
+            'r',
+            mode = { 'n', 'v' },
+            vim.cmd.HopChar1,
+            desc = 'Hop Char1',
+        },
+    },
 }
