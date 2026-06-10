@@ -175,6 +175,9 @@ highlight({
     typescript1 = { link = '@punctBracket' },
     typescriptParens = { link = '@punctBracket' },
 
+    ---------- TSX ----------
+    ['@tag.builtin.tsx'] = { link = 'Tag' },
+
     ---------- NVIM LSPCONFIG ----------
     DiagnosticError = { fg = c.red },
     DiagnosticHint = { fg = c.fg },
