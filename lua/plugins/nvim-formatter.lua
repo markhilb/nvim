@@ -4,6 +4,7 @@ local filetype = {
     typescriptreact = 'prettier --stdin-filepath .tsx',
     javascriptreact = 'prettier --stdin-filepath .jsx',
     html = 'prettier --stdin-filepath .html',
+    svg = 'prettier --stdin-filepath .svg',
     css = 'prettier --stdin-filepath .css',
     scss = 'prettier --stdin-filepath .scss',
     json = 'prettier --stdin-filepath .json',
