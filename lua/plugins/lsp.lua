@@ -78,6 +78,42 @@ return {
                 },
             })
 
+            vim.lsp.config('sourcekit', {
+                cmd = { 'sourcekit-lsp' },
+                filetypes = { 'swift', 'objc', 'objcpp', 'c', 'cpp' },
+                root_markers = {
+                    'buildServer.json',
+                    '.bsp',
+                    '*.xcodeproj',
+                    '*.xcworkspace',
+                    'Package.swift',
+                    'compile_commands.json',
+                    '.git',
+                },
+                get_language_id = function(_, filetype)
+                    local t = {
+                        objc = 'objective-c',
+                        objcpp = 'objective-cpp',
+                    }
+                    return t[filetype] or filetype
+                end,
+                capabilities = {
+                    workspace = {
+                        didChangeWatchedFiles = {
+                            dynamicRegistration = true,
+                        },
+                    },
+                    textDocument = {
+                        diagnostic = {
+                            dynamicRegistration = true,
+                            relatedDocumentSupport = true,
+                        },
+                    },
+                },
+            })
+
+            vim.lsp.enable('sourcekit')
+
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     'ts_ls',
